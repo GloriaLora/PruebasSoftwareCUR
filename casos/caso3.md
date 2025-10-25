@@ -28,5 +28,4 @@ Lecciones
 - Tener planes automáticos de contingencia para degradación controlada del servicio.
 
 Fuentes
-
-- (Añadir fuentes formales: informes, notificaciones regulatorias, noticias)
+https://archive.nytimes.com/dealbook.nytimes.com/2012/08/02/knight-capital-says-trading-mishap-cost-it-440-million/

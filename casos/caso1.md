@@ -29,5 +29,4 @@ Lecciones
 - Desplegar con canary y monitorización en tiempo real.
 
 Fuentes
-
-- (Añadir enlaces a reportes técnicos y noticias)
+https://specbranch.com/posts/knight-capital/

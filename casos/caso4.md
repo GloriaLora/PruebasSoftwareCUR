@@ -27,5 +27,4 @@ Lecciones
 - Monitorizar y alertar sobre patrones inusuales de transacciones.
 
 Fuentes
-
-- (Añadir enlaces a comunicados oficiales y artículos)
+https://www.milenio.com/negocios/hsbc-clientes-reportan-cobros-dobles-del-banco

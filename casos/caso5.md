@@ -26,5 +26,4 @@ Lecciones
 - Diseñar interfaces que minimicen la posibilidad de errores humanos (UX research + pruebas).
 
 Fuentes
-
-- (Añadir enlaces a noticias y reportes legales)
+https://cnnespanol.cnn.com/2024/05/22/error-dedo-multan-citigroup-us-189-000-millones-acciones-accidente-trax#:~:text=error%20de%20dedo%20gordo%E2%80%9D%20(fat%2Dfinger%2C%20en%20ingl%C3%A9s)%2C,error%20acciones%20por%20un%20valor%20de%20US

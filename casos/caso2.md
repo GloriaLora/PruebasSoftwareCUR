@@ -28,5 +28,4 @@ Lecciones
 - Mantener código legado documentado y auditable.
 
 Fuentes
-
-- (Añadir enlaces a informes históricos y artículos periodísticos)
+https://www.eset.com/latam/blog/cultura-y-seguridad-digital/y2k-el-dia-que-el-mundo-temio-un-colapso-tecnologico/
