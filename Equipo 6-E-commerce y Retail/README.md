@@ -1,9 +1,5 @@
 # Testing Disasters Research - E-commerce & Retail
 
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com)
-[![Documentation](https://img.shields.io/badge/Docs-Complete-green)](.)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-
 ## 📋 Tabla de Contenidos
 
 - [Descripción del Proyecto](#descripción-del-proyecto)
@@ -121,42 +117,6 @@ testing-disasters-research/
    - Recomendaciones
    - Checklist de prevención
 
-## 🤝 Cómo Contribuir
-
-### Para Miembros del Equipo
-
-1. **Clone el repositorio**
-   ```bash
-   git clone https://github.com/[usuario]/testing-disasters-research.git
-   cd testing-disasters-research
-   ```
-
-2. **Cree una rama para su trabajo**
-   ```bash
-   git checkout -b equipo-6/caso-nombre
-   ```
-
-3. **Realice sus cambios y commits**
-   ```bash
-   git add .
-   git commit -m "Agregar análisis de [caso]"
-   ```
-
-4. **Push y Pull Request**
-   ```bash
-   git push origin equipo-6/caso-nombre
-   ```
-
-### Guía de Estilo
-
-- **Markdown:** Utilizar formato estándar
-- **Imágenes:** PNG o JPG, máx 500KB
-- **Código:** Bloques con syntax highlighting
-- **Referencias:** Formato APA 7
-
-### Plantilla para Nuevos Casos
-
-Ver [`equipo-6-ecommerce/casos/plantilla-caso.md`](equipo-6-ecommerce/casos/plantilla-caso.md)
 
 ## 📚 Recursos Adicionales
 
@@ -197,36 +157,3 @@ Ver [`equipo-6-ecommerce/casos/plantilla-caso.md`](equipo-6-ecommerce/casos/plan
 - Google Scholar
 - Industry Reports (Gartner, Forrester)
 
-### Normativas y Estándares
-
-- ISO/IEC 29119 - Software Testing
-- ISTQB - International Software Testing Qualifications Board
-- OWASP - Web Application Security Testing
-- PCI DSS - Payment Card Industry Data Security Standard
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
-
-## 📞 Contacto
-
-**Equipo 6 - E-commerce & Retail**
-
-- Email: equipo6@example.com
-- Slack: #equipo-6-ecommerce
-- Reuniones: Martes y Jueves, 3:00 PM
-
----
-
-## 🔄 Actualizaciones Recientes
-
-| Fecha | Cambio | Autor |
-|-------|--------|-------|
-| 2025-10-25 | Documentación inicial | Equipo 6 |
-| 2025-10-25 | Casos 1-4 completados | Equipo 6 |
-
----
-
-**Última actualización:** 25 de Octubre, 2025
-
-**Versión:** 1.0.0
