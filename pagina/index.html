@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Equipo 1 - Desastres Financieros por Fallos de Software</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css">
+    <style>
+        :root {
+            --accent: #0b5cff;
+            --card: #fff;
+            --muted: #666
+        }
+
+        body {
+            font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+            background: #f6f8fb;
+            color: #111;
+            margin: 0;
+            padding: 24px
+        }
+
+        header {
+            max-width: 1100px;
+            margin: 0 auto 18px
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        h1 {
+            color: var(--accent);
+            margin: 0 0 6px;
+            font-size: 1.6rem
+        }
+
+        p.lead {
+            margin: 6px 0 18px;
+            color: var(--muted)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px
+        }
+
+        @media(min-width:900px) {
+            .grid {
+                grid-template-columns: 280px 1fr;
+                align-items: start
+            }
+
+            .grid-cases {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+                gap: 16px;
+            }
+        }
+
+        .card {
+            background: var(--card);
+            padding: 16px;
+            border-radius: 10px;
+            box-shadow: 0 6px 18px rgba(15, 25, 40, 0.06);
+            position: relative
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 24px;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 8px 12px;
+            color: var(--muted);
+            text-decoration: none;
+            border-radius: 6px;
+            margin: 4px 0;
+        }
+
+        .nav-link:hover {
+            background: #f0f0f0;
+            color: var(--accent);
+        }
+
+        .nav-link.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .section-title {
+            scroll-margin-top: 24px;
+        }
+
+        .small {
+            font-size: 0.9rem;
+            color: var(--muted)
+        }
+
+        .case-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start
+        }
+
+        .case-svg {
+            width: 110px;
+            height: 110px;
+            border-radius: 10px;
+            flex: 0 0 110px;
+            background: #eef6ff;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .case-meta {
+            font-weight: 600
+        }
+
+        .tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 8px
+        }
+
+        .tag {
+            background: #f0f0f0;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 0.85rem
+        }
+
+        .muted {
+            color: var(--muted);
+            font-size: 0.95rem
+        }
+
+        .center {
+            text-align: center
+        }
+
+        .timeline-wrap {
+            max-width: 1000px;
+            margin: 0 auto
+        }
+
+        .detail {
+            margin-top: 10px
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600
+        }
+
+        footer {
+            max-width: 1100px;
+            margin: 24px auto 80px;
+            color: var(--muted);
+            font-size: 0.9rem
+        }
+
+        ul.clean {
+            padding-left: 1rem
+        }
+
+        .reflect-list li {
+            margin: 8px 0
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container">
+        <h1>Equipo 1 — Errores de software que causaron pérdidas millonarias</h1>
+        <p class="lead">Integrantes: Manuela, Luisa y Alexis. <span class="small">Tema: Desastres financieros y
+                bancarios
+                causados por fallos en software y falta de pruebas.</span></p>
+    </header>
+
+    <main class="container grid">
+        <!-- Left: Navigation -->
+        <aside class="card sticky-nav">
+            <h3>Navegación</h3>
+            <nav>
+                <a href="#introduccion" class="nav-link">Introducción</a>
+                <a href="#timeline" class="nav-link">Timeline</a>
+                <a href="#casos" class="nav-link">Casos</a>
+                <a href="#analisis" class="nav-link">Análisis Comparativo</a>
+                <a href="#reflexion" class="nav-link">Reflexión</a>
+            </nav>
+
+            <hr>
+
+            <h3>Recursos</h3>
+            <ul style="list-style:none;padding:0">
+                <li><a href="#" class="nav-link">Knight Capital</a></li>
+                <li><a href="#" class="nav-link">Y2K Bug</a></li>
+                <li><a href="#" class="nav-link">Nasdaq Facebook IPO</a></li>
+                <li><a href="#" class="nav-link">HSBC Case</a></li>
+                <li><a href="#" class="nav-link">Citibank Case</a></li>
+            </ul>
+        </aside>
+
+        <!-- Right: Main content -->
+        <section>
+            <article class="card" id="introduccion">
+                <h2 class="section-title">INTRODUCCIÓN</h2>
+                <p>
+                    Esta investigación analiza fallos de software en el sector financiero que originaron pérdidas
+                    económicas cuantificables y consecuencias regulatorias. Nos enfocamos en tres incidentes
+                    representativos (Knight Capital 2012, RBS/NatWest 2012, y la migración fallida de TSB 2018),
+                    identificando causas técnicas, pruebas que faltaron (regresión, integración, estrés) y lecciones
+                    para evitar la repetición. El objetivo es extraer patrones comunes y detallar tipos de pruebas
+                    críticas
+                    para sistemas financieros donde los errores pueden traducirse en pérdidas millonarias y riesgos
+                    sistémicos.
+                </p>
+
+                <hr />
+
+            </article>
+
+            <article class="card" id="timeline">
+                <h3 class="section-title">TIMELINE INTERACTIVO</h3>
+                <p class="small">Haz clic en un punto para ver datos y abrir la ficha del caso.</p>
+                <div class="timeline-wrap" style="padding:12px">
+                    <canvas id="timelineChart" style="width:100%;height:260px"></canvas>
+                    <div id="timelineDetail" class="detail muted">Selecciona un punto del timeline para más detalle.
+                    </div>
+                </div>
+            </article>
+
+            <h3 class="section-title" id="casos">CASOS</h3>
+            <div class="grid-cases">
+
+                <!-- Caso 1 -->
+                <article class="card" id="case-knight" style="margin-bottom:14px">
+                    <div class="case-row">
+                        <div class="case-svg" aria-hidden="true">
+                            <!-- simple inline SVG -->
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" fill="#0b5cff" opacity="0.12" />
+                                <path d="M3 9h18" stroke="#0b5cff" stroke-width="1.5" stroke-linecap="round" />
+                                <circle cx="8" cy="17" r="2" fill="#0b5cff" />
+                                <circle cx="16" cy="17" r="2" fill="#0b5cff" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="case-title">Caso 1</h3>
+                            <div class="case-meta">Knight Capital (1 ago 2012)</div>
+                            <div class="small muted">Sector: Trading algorítmico — Pérdida aproximada:
+                                <strong>$440M</strong>
+                            </div>
+                            <div class="tags">
+                                <div class="tag">Problema: despliegue erróneo</div>
+                                <div class="tag">Impacto: pérdidas rápidas</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top:12px">Descripción corta</h4>
+                    <p class="muted">Un despliegue en producción activó código/flags antiguos que generaron órdenes
+                        masivas
+                        erróneas durante ~45 minutos. El sistema ejecutó operaciones automáticas sin límites adecuados y
+                        la
+                        empresa sufrió pérdidas inmediatas. La respuesta fue manual y tardía.</p>
+
+                    <h4>Pruebas que faltaron</h4>
+                    <ul class="clean">
+                        <li>Pruebas de integración end-to-end con sistemas de mercado reales (market feeds, clearing).
+                        </li>
+                        <li>Regresión automática que detecte reactivación de código legacy/flags.</li>
+                        <li>Chaos testing / fault injection para validar rollbacks y kill switches.</li>
+                        <li>Canary deployment con monitorización en tiempo real y límites de seguridad (circuit
+                            breakers).
+                        </li>
+                    </ul>
+
+                    <h4>Lecciones</h4>
+                    <p class="muted">Paridad entre staging y producción, límites runtime para órdenes, despliegues
+                        canary y
+                        pruebas de estrés en condiciones de mercado son imprescindibles.</p>
+                </article>
+
+                <!-- Caso 2 -->
+                <article class="card" id="case-rbs" style="margin-bottom:14px">
+                    <div class="case-row">
+                        <div class="case-svg">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" fill="#0b5cff" opacity="0.12" />
+                                <path d="M6 7h12" stroke="#0b5cff" stroke-width="1.5" stroke-linecap="round" />
+                                <rect x="6" y="12" width="12" height="2" rx="0.8" fill="#0b5cff" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="case-title">Caso 2</h3>
+
+                            <div class="case-meta">Y2K Bug</div>
+                            <div class="small muted">Sector: Bancario y financiero global</div>
+                            <div class="tags">
+                                <div class="tag">Problema: Fallo potencial por representación de años con dos dígitos
+                                    (99 →
+                                    00)</div>
+                                <div class="tag">Impacto: Riesgo global de cálculos erróneos en intereses, vencimientos
+                                    y
+                                    pagos automáticos</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top:12px">Descripción corta</h4>
+                    <p class="muted">El famoso “Y2K bug” afectaba sistemas que representaban el año con dos cifras. Al
+                        pasar
+                        del 31 de diciembre de 1999 al 1 de enero de 2000, muchos programas habrían interpretado el año
+                        “00”
+                        como 1900, provocando errores en cálculos financieros y vencimientos. Aunque se evitó un colapso
+                        real, la prevención costó más de $100 mil millones en correcciones y pruebas.</p>
+
+                    <h4>Pruebas que faltaron</h4>
+                    <ul class="clean">
+                        <li>Análisis de regresión sobre formatos de fechas en sistemas legados.</li>
+                        <li>Pruebas unitarias con fechas futuras y límites de tiempo.</li>
+                        <li>Verificación cruzada de cálculos en sistemas dependientes de fecha.</li>
+                    </ul>
+
+                    <h4>Lecciones</h4>
+                    <p class="muted">Las pruebas deben incluir escenarios límite y validación de entradas históricas y
+                        futuras. La experiencia del Y2K mostró la importancia de mantener un código documentado,
+                        auditable y
+                        preparado para cambios de formato o calendario.</p>
+                </article>
+
+                <!-- Caso 3 -->
+                <article class="card" id="case-tsb">
+                    <div class="case-row">
+                        <div class="case-svg">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" fill="#0b5cff" opacity="0.12" />
+                                <path d="M4 10h16" stroke="#0b5cff" stroke-width="1.2" stroke-linecap="round" />
+                                <circle cx="8" cy="16" r="1.6" fill="#0b5cff" />
+                                <circle cx="16" cy="16" r="1.6" fill="#0b5cff" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="case-title">Caso 3</h3>
+
+                            <div class="case-meta">Nasdaq Facebook IPO Glitch (2012)</div>
+                            <div class="small muted">Sector: Bolsa de valores / Tecnología financiera</div>
+                            <div class="tags">
+                                <div class="tag">Problema: Fallo en el sistema de órdenes durante la salida a bolsa de
+                                    Facebook (IPO)</div>
+                                <div class="tag">Impacto: Pérdidas de más de $500 millones y demandas contra Nasdaq
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top:12px">Descripción corta</h4>
+                    <p class="muted">Durante la IPO de Facebook, el software de Nasdaq falló al procesar órdenes debido
+                        a un
+                        error en el algoritmo de confirmación. Miles de operaciones quedaron sin ejecutar o duplicadas,
+                        generando pérdidas masivas y afectando la confianza de los inversores.</p>
+
+                    <h4>Pruebas que faltaron</h4>
+                    <ul class="clean">
+                        <li>Pruebas de carga y estrés con simulaciones de mercado real.</li>
+                        <li>Validación de sincronización de órdenes y tiempos de respuesta.</li>
+                        <li>Pruebas de contingencia ante caídas parciales del sistema.</li>
+                    </ul>
+
+                    <h4>Lecciones</h4>
+                    <p class="muted">Validar software en entornos que simulen la demanda real antes de eventos de alto
+                        impacto, y aplicar planes de contingencia automáticos para mantener estabilidad operativa.</p>
+
+
+                </article>
+
+                <article class="card" id="case-tsb">
+                    <div class="case-row">
+                        <div class="case-svg">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" fill="#0b5cff" opacity="0.12" />
+                                <path d="M4 10h16" stroke="#0b5cff" stroke-width="1.2" stroke-linecap="round" />
+                                <circle cx="8" cy="16" r="1.6" fill="#0b5cff" />
+                                <circle cx="16" cy="16" r="1.6" fill="#0b5cff" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="case-title">Caso 4</h3>
+
+                            <div class="case-meta">HSBC Cobros Duplicados (2024)</div>
+                            <div class="small muted">Sector: Banca minorista global</div>
+                            <div class="tags">
+                                <div class="tag">Problema: Error en el procesamiento de pagos duplicó transacciones
+                                </div>
+                                <div class="tag">Impacto: Miles de clientes afectados y reembolsos millonarios</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top:12px">Descripción corta</h4>
+                    <p class="muted">Una actualización en el sistema de pagos de HSBC generó cobros duplicados a
+                        clientes
+                        debido a una mala gestión de transacciones en cola. El error se propagó antes de ser detectado,
+                        causando fallos en balances y reclamos masivos.</p>
+
+                    <h4>Pruebas que faltaron</h4>
+                    <ul class="clean">
+                        <li>Pruebas de regresión automatizadas tras actualizaciones.</li>
+                        <li>Validación de duplicidad de transacciones y consistencia de datos..</li>
+                        <li>Pruebas de estrés en los módulos de procesamiento concurrente.</li>
+                    </ul>
+
+                    <h4>Lecciones</h4>
+                    <p class="muted">Automatizar pruebas de regresión e integridad en cada despliegue y monitorear
+                        continuamente las transacciones para prevenir duplicados o inconsistencias.</p>
+
+
+                </article>
+
+                <article class="card" id="case-tsb">
+                    <div class="case-row">
+                        <div class="case-svg">
+                            <svg width="70" height="70" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="3" width="20" height="14" rx="2" fill="#0b5cff" opacity="0.12" />
+                                <path d="M4 10h16" stroke="#0b5cff" stroke-width="1.2" stroke-linecap="round" />
+                                <circle cx="8" cy="16" r="1.6" fill="#0b5cff" />
+                                <circle cx="16" cy="16" r="1.6" fill="#0b5cff" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="case-title">Caso 5</h3>
+
+                            <div class="case-meta">Citibank Fat Finger Error (2022)</div>
+                            <div class="small muted">Sector: Banca corporativa / inversiones</div>
+                            <div class="tags">
+                                <div class="tag">Problema: Error humano en software de transferencias masivas</div>
+                                <div class="tag">Impacto: Transferencia accidental de $900 millones; gran parte no
+                                    recuperable</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top:12px">Descripción corta</h4>
+                    <p class="muted">Un empleado de Citibank realizó por error una transferencia completa a acreedores
+                        de
+                        Revlon debido a una interfaz mal diseñada y ausencia de validaciones en el software de pagos. El
+                        sistema ejecutó la orden sin alertas ni confirmaciones.</p>
+
+                    <h4>Pruebas que faltaron</h4>
+                    <ul class="clean">
+                        <li>Validaciones automáticas de límites en montos de transferencia.</li>
+                        <li>Pruebas de usabilidad y flujos de confirmación múltiple.</li>
+                        <li>Simulaciones de errores humanos y revisiones UX antes del despliegue.</li>
+                    </ul>
+
+                    <h4>Lecciones</h4>
+                    <p class="muted">Implementar validaciones críticas y confirmaciones dobles en operaciones sensibles,
+                        junto con pruebas de interfaz que reduzcan errores humanos.</p>
+
+
+                </article>
+
+            </div> <!-- Cierre de grid-cases -->
+
+            <article class="card" id="analisis">
+                <h3 class="section-title">Análisis comparativo</h3>
+                <p class="small">Visualización que muestra los tipos de pruebas que faltaron en los casos analizados
+                    (conteo estimado por tipo de prueba).</p>
+                <div style="padding:12px">
+                    <canvas id="barChart" style="width:100%;height:260px"></canvas>
+                    <p class="muted small" id="barHint">Interacciona con las barras para ver detalles.</p>
+                </div>
+
+                <h4>Patrón común (síntesis)</h4>
+                <p class="muted">
+                    Del análisis de los cinco casos se identifican tres patrones críticos:
+                </p>
+                <ul class="clean muted">
+                    <li><strong>Fallos en validación de cambios y despliegues</strong> (Knight Capital, HSBC): Los
+                        errores más costosos surgieron de actualizaciones mal validadas y despliegues sin suficientes
+                        controles de seguridad.</li>
+                    <li><strong>Ausencia de pruebas en condiciones realistas</strong> (Nasdaq, Y2K): La falta de pruebas
+                        que simulen condiciones reales de carga y estrés llevó a fallos durante eventos críticos.</li>
+                    <li><strong>Falta de validaciones y controles preventivos</strong> (Citibank, HSBC): La ausencia de
+                        validaciones automáticas y controles de límites permitió que errores humanos o técnicos
+                        escalaran rápidamente.</li>
+                </ul>
+
+                <h4>Tipos de pruebas críticas (prioridad)</h4>
+                <ol class="muted">
+                    <li>Integración end-to-end con sistemas de mercado y clearing</li>
+                    <li>Validaciones de UI/UX y flujos críticos de usuario</li>
+                    <li>Pruebas de límites y controles preventivos</li>
+                    <li>Pruebas de estrés y performance bajo condiciones pico</li>
+                    <li>Pruebas de recuperación y planes de contingencia</li>
+                    <li>Regresión automatizada post-cambios</li>
+                    <li>Chaos testing para validar respuestas ante fallos</li>
+                </ol>
+
+                <hr />
+
+                <h3 class="section-title" id="reflexion">Reflexiones Personales</h3>
+
+                <article class="card" style="margin-bottom:14px">
+                    <h4>Reflexión de Manuela</h4>
+                    <p class="muted">
+                        Antes de esta investigación, veía el testing como una fase tediosa desarrollo.
+                        Pensaba que con hacer algunas pruebas unitarias y probar manualmente las funcionalidades
+                        principales
+                        era suficiente. ¡Qué error pensar así! El caso de Knight Capital me impactó de manera muy
+                        significate; perder $440
+                        millones
+                        en 45 minutos por un despliegue mal validado... Eso cambia completamente tu perspectiva sobre la
+                        importancia de las pruebas exhaustivas.
+
+                        Lo que más me sorprendió fue ver que muchos de estos desastres no fueron causados por bugs
+                        complejos o errores técnicos profundos, sino por cosas que parecían "simples" como una interfaz
+                        confusa en Citibank o la falta de validaciones básicas en HSBC. Es como si hubiéramos estado tan
+                        enfocados en construir funcionalidades complejas que nos olvidamos de lo básico.
+
+                        Ahora veo el desarrollo de software como una responsabilidad mucho más seria. No estamos solo
+                        escribiendo código, estamos construyendo sistemas que manejan el dinero y la confianza de las
+                        personas. Cada línea de código, cada interfaz, cada validación puede ser el punto de diferencia
+                        entre un día normal y un desastre financiero.
+                    </p>
+                </article>
+
+                <article class="card" style="margin-bottom:14px">
+                    <h4>Reflexión de Luisa</h4>
+                    <p class="muted">
+                        La verdad es que el haber hecho esta investigación me hizo más consciente de la importancia de
+                        las pruebas. Antes pensaba que los errores de
+                        software
+                        eran cosa de "apagar y encender" o hacer un rollback rápido y listo. Pero ver cómo un error de
+                        UI
+                        en Citibank causó una pérdida de $900 millones... Eso te hace replantear todo.
+
+                        Lo que más me impactó fue el caso de HSBC con los cobros duplicados. Como estudiante de
+                        desarrollo de software,
+                        siempre he pensando "Bueno, si algo falla, se arregla y ya". Pero ver cómo un error así afecta a
+                        miles de personas, sus cuentas bancarias, sus pagos, te hace entender que nuestro trabajo
+                        tiene
+                        consecuencias muy reales en la vida de la gente.
+
+                        Ahora cada vez que programe algo me preguntaré: "¿Qué podría salir mal aquí? ¿Qué validaciones
+                        necesito? ¿Cómo puedo hacer esto a prueba de errores?" Es como si hubiera desarrollado un sexto
+                        sentido para detectar posibles puntos de fallo. Ya no veo el testing como una pérdida de tiempo,
+                        sino como una inversión en tranquilidad y confiabilidad.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <h4>Reflexión de Alexis</h4>
+                    <p class="muted">
+                        Cuando empecé en desarrollo de software, tenía esta idea romántica de que se trataba de crear
+                        código elegante y funciones innovadoras. El caso del Y2K me abrió los ojos. A veces los
+                        problemas
+                        más graves vienen de las suposiciones más básicas que hacemos al programar.
+
+                        Lo que más me sorprendió fue ver cómo estos errores no solo afectaron números en una pantalla,
+                        sino la confianza de la gente en los sistemas financieros. El caso de Nasdaq con la IPO de
+                        Facebook no solo causó pérdidas económicas, también dañó la credibilidad de todo el mercado
+                        bursátil.
+
+                        Esta investigación cambió radicalmente mi enfoque al programar. Ahora pienso más en escenarios
+                        límite, en validaciones preventivas, en cómo hacer los sistemas más resilientes. Me di cuenta de
+                        que ser un buen desarrollador no se trata solo de escribir código que funcione, sino de escribir
+                        código que sea seguro, confiable y a prueba de errores humanos.
+                    </p>
+                </article>
+
+        </section>
+
+        <!-- Right column: recursos y resumen -->
+        <aside class="card">
+            <h3>Recursos rápidos</h3>
+            <ul>
+                <li><a href="https://specbranch.com/posts/knight-capital/" target="_blank" rel="noopener">Knight
+                        Capital - análisis técnico</a></li>
+                <li><a href="https://www.eset.com/latam/blog/cultura-y-seguridad-digital/y2k-el-dia-que-el-mundo-temio-un-colapso-tecnologico/"
+                        target="_blank" rel="noopener">Y2K Bug</a></li>
+                <li><a href="https://archive.nytimes.com/dealbook.nytimes.com/2012/08/02/knight-capital-says-trading-mishap-cost-it-440-million/"
+                        target="_blank" rel="noopener">Nasdaq Facebook IPO Glitch </a></li>
+                <li><a href="https://www.milenio.com/negocios/hsbc-clientes-reportan-cobros-dobles-del-banco"
+                        target="_blank" rel="noopener">HSBC Cobros Duplicados</a></li>
+                <li><a href="https://cnnespanol.cnn.com/2024/05/22/error-dedo-multan-citigroup-us-189-000-millones-acciones-accidente-trax#:~:text=error%20de%20dedo%20gordo%E2%80%9D%20(fat%2Dfinger%2C%20en%20ingl%C3%A9s)%2C,error%20acciones%20por%20un%20valor%20de%20US"
+                        target="_blank" rel="noopener">Citibank Fat Finger Error</a></li>
+            </ul>
+
+
+
+        </aside>
+    </main>
+
+    <footer class="container">
+        <p class="small">Archivo generado automáticamente para la entrega del Equipo 1.</p>
+    </footer>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3"></script>
+
+    <script>
+        // Datos del timeline (fechas y resúmenes)
+        const timelinePoints = [
+            {
+                date: '2012-08-01',
+                label: 'Knight Capital (2012)',
+                short: 'Despliegue erróneo en trading algorítmico. Pérdida ~ $440M.',
+                id: 'case-knight'
+            },
+            {
+                date: '2000-01-01',
+                label: 'Bug del año 2000',
+                short: 'Fallo potencial por representación de años con dos dígitos. Coste prevención > $100B.',
+                id: 'case-y2k'
+            },
+            {
+                date: '2012-05-18',
+                label: 'Nasdaq Facebook IPO (2012)',
+                short: 'Error en sistema de órdenes. Pérdidas > $500M.',
+                id: 'case-nasdaq'
+            },
+            {
+                date: '2020-01-15',
+                label: 'HSBC Cobros Duplicados (2020)',
+                short: 'Error en procesamiento de pagos. Miles de clientes afectados.',
+                id: 'case-hsbc'
+            },
+            {
+                date: '2020-08-11',
+                label: 'Citibank Fat Finger (2020)',
+                short: 'Error UI en transferencias. Pérdida $900M.',
+                id: 'case-citi'
+            }
+        ];
+
+        // TIMELINE chart (scatter with time axis)
+        const ctx = document.getElementById('timelineChart').getContext('2d');
+        const tData = {
+            datasets: [{
+                label: 'Incidentes',
+                data: timelinePoints.map((p, i) => ({ x: new Date(p.date), y: 1, label: p.label, short: p.short, id: p.id })),
+                pointRadius: 10,
+                backgroundColor: '#0b5cff'
+            }]
+        };
+
+        const timelineChart = new Chart(ctx, {
+            type: 'scatter',
+            data: tData,
+            options: {
+                scales: {
+                    x: {
+                        type: 'time',
+                        time: { unit: 'year' },
+                        title: { display: true, text: 'Año' }
+                    },
+                    y: { display: false }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ctx.raw.label + ' — ' + ctx.raw.short
+                        }
+                    },
+                    legend: { display: false }
+                },
+                onClick: (evt, elements) => {
+                    if (elements.length > 0) {
+                        const idx = elements[0].index;
+                        const d = tData.datasets[0].data[idx];
+                        const detail = document.getElementById('timelineDetail');
+                        detail.innerHTML = '<strong>' + d.label + '</strong><br>' + d.short + ' <br><em>Ir a la ficha del caso →</em>';
+                        // smooth scroll to the case section
+                        const target = document.getElementById(d.id);
+                        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }
+            }
+        });
+
+        // BAR chart (análisis comparativo)
+        const barCtx = document.getElementById('barChart').getContext('2d');
+        // Conteo estimado de pruebas faltantes por tipo (valores relativos)
+        const barData = {
+            labels: [
+                'Integración E2E',
+                'Regresión Automática',
+                'Pruebas de Estrés/Performance',
+                'Validación de Datos/Reconciliación',
+                'Pruebas de UI/UX',
+                'Pruebas de Límites/Validaciones',
+                'Pruebas de Contingencia',
+                'Chaos Testing'
+            ],
+            datasets: [{
+                label: 'Casos que omitieron esta prueba',
+                data: [5, 5, 4, 4, 3, 3, 3, 2],
+                backgroundColor: '#0b5cff'
+            }]
+        };
+
+        const barChart = new Chart(barCtx, {
+            type: 'bar',
+            data: barData,
+            options: {
+                indexAxis: 'y',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => ctx.label + ': ' + ctx.parsed.x + ' (prioridad relativa)'
+                        }
+                    }
+                },
+                scales: {
+                    x: { display: false }
+                }
+            }
+        });
+
+        // Añadir accesibilidad: mostrar label cuando se hace hover en barras
+        document.getElementById('barChart').addEventListener('mousemove', (e) => {
+            // handled by Chart.js tooltip
+        });
+
+        // Navegación suave y resaltado activo
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', e => {
+                const href = link.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer para detectar secciones visibles
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.section-title').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+
+</html>
