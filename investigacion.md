@@ -10,8 +10,7 @@ la página del equipo.
 
 2. Fuentes y verificación
 
-- Priorizar fuentes primarias y publicaciones periodísticas reconocidas (Reuters, Bloomberg, informes
-  regulatorios — SEC, FCA) y resúmenes técnicos cuando estén disponibles.
+- Priorizar fuentes primarias y publicaciones periodísticas reconocidas y resúmenes técnicos cuando estén disponibles.
 - En el HTML se incluyen enlaces de ejemplo (Wikipedia). Reemplaza por las URLs originales en `pagina/`.
 
 3. Criterios de análisis
