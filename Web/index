@@ -1,1 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Equipo 4: Sistemas Críticos - Transporte y Aeroespacial</title>
+  <meta name="description" content="Fallos en sistemas de transporte, aviación y espacio — página visual, accesible e interactiva." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#0f1a2f;
+      --panel-2:#0d1527;
+      --text:#e6edf7;
+      --muted:#9fb1d1;
+      --brand:#66e0ff;
+      --brand-2:#7cffb7;
+      --danger:#ff6b6b;
+      --ok:#72f1b8;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; background: radial-gradient(1200px 600px at 70% -10%, #153059 0%, #0b1220 55%) fixed, var(--bg);
+      color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; line-height:1.6;
+    }
+    a{color:var(--brand)} a:hover{opacity:.9}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(8px);
+      background:linear-gradient(180deg, rgba(11,18,32,.85), rgba(11,18,32,.55));
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+    .wrap{max-width:1200px; margin:0 auto; padding: 0 20px}
+    nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; gap:10px; align-items:center}
+    .brand i{color:var(--brand)}
+    .brand h1{font-family: "Space Grotesk"; font-size: clamp(18px, 4vw, 22px); margin:0}
+    .menu{display:flex; gap:14px; flex-wrap:wrap}
+    .menu a{padding:10px 14px; border-radius:12px; text-decoration:none; color:var(--text)}
+    .menu a:hover, .menu a.active{background:rgba(255,255,255,.06)}
+
+    /* Hero */
+    .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:28px; align-items:center; padding: 56px 0 36px}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:6px 10px; border-radius:999px; background:rgba(124,255,183,.12); color:var(--brand-2); font-weight:600; font-size:13px}
+    .hero h2{font-family:"Space Grotesk"; font-size: clamp(28px, 5vw, 48px); line-height:1.1; margin:10px 0 10px}
+    .hero p{color:var(--muted); margin:0 0 18px}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{border:0; background:var(--brand); color:#07121e; font-weight:800; padding:12px 16px; border-radius:12px; cursor:pointer; box-shadow:var(--shadow)}
+    .btn.secondary{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.12)}
+    .panel{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,0)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow: var(--shadow)}
+    .scene{position:relative; aspect-ratio: 1.1/1; overflow:hidden}
+    .scene img{width:100%; height:100%; object-fit:cover; filter:saturate(1.05) contrast(1.05); opacity:.92}
+    .orb{position:absolute; inset:auto -10% -15% auto; width:48%; height:48%; filter: blur(40px); background: radial-gradient(60% 60% at 50% 50%, rgba(102,224,255,.6), transparent); pointer-events:none}
+
+    /* Sections */
+    section{padding:56px 0}
+    section .head{display:flex; align-items:end; justify-content:space-between; gap:10px; margin-bottom:18px}
+    section h3{font-family:"Space Grotesk"; font-size:clamp(22px, 3vw, 30px); margin:0}
+    .muted{color:var(--muted)}
+
+    /* Cards grid */
+    .grid{display:grid; grid-template-columns: repeat(12, 1fr); gap:18px}
+    .col-12{grid-column: span 12}
+    .col-8{grid-column: span 8}
+    .col-6{grid-column: span 6}
+    .col-4{grid-column: span 4}
+    .card{position:relative; overflow:hidden; transition: transform .25s ease, border-color .25s ease; border-radius: var(--radius); border:1px solid rgba(255,255,255,.08); background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02))}
+    .card:hover{transform: translateY(-4px); border-color:rgba(255,255,255,.18)}
+    .card .media{position:relative; height:180px; overflow:hidden}
+    .card .media img{width:100%; height:100%; object-fit:cover}
+    .card .body{padding:16px}
+    .tag{display:inline-flex; align-items:center; gap:6px; padding:5px 10px; border-radius:999px; font-size:12px; border:1px solid rgba(255,255,255,.12)}
+    .tag.ok{color:var(--ok); border-color: rgba(124,255,183,.35)}
+    .tag.warn{color:#ffd369; border-color: rgba(255,211,105,.35)}
+    .tag.bad{color:var(--danger); border-color: rgba(255,107,107,.35)}
+
+    /* Storyline */
+    .timeline{position:relative; padding-left:18px}
+    .timeline::before{content:""; position:absolute; left:6px; top:0; bottom:0; width:2px; background:linear-gradient(#66e0ff,#7cffb7)}
+    .step{position:relative; margin:0 0 18px; padding-left:16px}
+    .step::marker{content:none}
+    .step::before{content:""; position:absolute; left:-10px; top:4px; width:12px; height:12px; border-radius:50%; background:linear-gradient(#66e0ff,#7cffb7); box-shadow:0 0 0 3px rgba(102,224,255,.18)}
+
+    /* Accordions */
+    details{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:12px 14px}
+    summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:8px; font-weight:600}
+    summary::-webkit-details-marker{display:none}
+
+    /* Tooltips */
+    [data-tip]{position:relative}
+    [data-tip]::after{content: attr(data-tip); position:absolute; left:50%; bottom:calc(100% + 8px); transform: translateX(-50%) translateY(8px); opacity:0; pointer-events:none; white-space:nowrap; background:#0b1220; color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:6px 10px; font-size:12px; transition: .2s; box-shadow: var(--shadow)}
+    [data-tip]:hover::after{opacity:1; transform: translateX(-50%) translateY(0)}
+
+    /* Chart */
+    .chart-wrap{padding:16px}
+    canvas{max-width:100%; height:auto}
+
+    /* Tables */
+    table{width:100%; border-collapse:collapse; border:1px solid rgba(255,255,255,.12); border-radius:14px; overflow:hidden}
+    thead{background:rgba(255,255,255,.06)}
+    th,td{padding:12px 10px; border-bottom:1px solid rgba(255,255,255,.08); vertical-align:top}
+    tbody tr:hover{background:rgba(255,255,255,.03)}
+
+    /* Footer */
+    footer{padding:28px 0 56px; color:var(--muted)}
+
+    /* Back to top */
+    .top{position:fixed; right:18px; bottom:18px; z-index:60; opacity:0; transform:translateY(10px); transition:.25s}
+    .top.show{opacity:1; transform:translateY(0)}
+
+    /* Animations on scroll */
+    .reveal{opacity:0; transform: translateY(14px); transition: .6s ease}
+    .reveal.in{opacity:1; transform: translateY(0)}
+
+    /* Responsive */
+    @media (max-width: 1024px){ .menu{display:none} }
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr}
+      .col-8,.col-6,.col-4{grid-column: span 12}
+    }
+    @media (prefers-reduced-motion: reduce){
+      *{scroll-behavior:auto}
+      .reveal{transition:none}
+      .card{transition:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Navegación principal">
+        <div class="brand">
+          <i class="fa-solid fa-satellite-dish" aria-hidden="true"></i>
+          <h1>Equipo 4 · Sistemas Críticos</h1>
+        </div>
+        <div class="menu" role="menubar">
+          <a href="#inicio" role="menuitem" class="active">Inicio</a>
+          <a href="#intro" role="menuitem">Introducción</a>
+          <a href="#timeline" role="menuitem">Timeline</a>
+          <a href="#casos-investigados" role="menuitem">Casos</a>
+          <a href="#analisis" role="menuitem">Análisis</a>
+          <a href="#datos" role="menuitem">Datos</a>
+          <a href="#reflexiones" role="menuitem">Reflexiones</a>
+          <a href="#recursos" role="menuitem">Recursos</a>
+          <a href="#referencias" role="menuitem">Referencias</a>
+          <a href="#equipo" role="menuitem">Equipo</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge"><i class="fa-solid fa-bolt"></i> Sistemas críticos · Transporte, Aviación y Espacio</span>
+        <h2>Fallos que cambian rumbos: de la pista al vacío espacial</h2>
+        <p>Explora, con una narrativa visual e interactiva, cómo pequeños errores pueden escalar a incidentes mayores en sistemas de transporte y aeroespaciales. Aprende patrones, decisiones y salvaguardas que marcan la diferencia entre el riesgo y la resiliencia.</p>
+        <div class="cta">
+          <a class="btn" href="#casos-investigados">Ver casos</a>
+          <a class="btn secondary" href="#analisis">Explorar análisis</a>
+        </div>
+      </div>
+      <div class="panel scene" aria-hidden="true">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.YwlaEs9Nyr_Bztv6KGJS2AHaEz?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Ariane 5 (1996) – lanzamiento"/>
+        <div class="orb"></div>
+      </div>
+    </section>
+
+    <!-- INTRODUCCIÓN + INTEGRANTES -->
+    <section id="intro">
+      <div class="head">
+        <h3>🛰️ SISTEMAS CRÍTICOS – TRANSPORTE Y AEROESPACIAL</h3>
+        <span class="muted">Contexto del proyecto y el equipo</span>
+      </div>
+      <div class="grid">
+        <div class="col-8">
+          <div class="panel" style="padding:16px" class="reveal">
+            <p><strong>🚀 INTRODUCCIÓN</strong><br>
+              El software desempeña un papel vital en los sistemas de transporte, aviación y exploración espacial. Sin embargo, cuando falla, las consecuencias pueden ser catastróficas, afectando vidas humanas y causando pérdidas millonarias. Nuestro equipo investigó tres casos emblemáticos en los que errores de programación o pruebas insuficientes provocaron desastres tecnológicos: el cohete Ariane 5 (1996), los accidentes del Boeing 737 MAX (2018–2019) y la colisión del Metro de Shanghái Línea 10 (2011). Cada uno evidencia cómo los fallos en conversión de datos, sensores, sincronización o validaciones en tiempo real pueden desencadenar tragedias. El objetivo de este análisis es comprender qué pruebas faltaron, cómo se pudieron prevenir y qué enseñanzas dejan para el desarrollo de software crítico bajo estándares como DO-178C e IEC 62290, que garantizan seguridad, confiabilidad y rigor extremo en sistemas donde un error no es una opción.</p>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="panel" style="padding:16px" class="reveal">
+            <h4 style="margin-top:0">Integrantes del equipo</h4>
+            <ul style="margin:0; padding-left:18px">
+              <li>Yeison Roa A</li>
+              <li>Sebastián Carvajal Ospina</li>
+              <li>Juan Diego Paz</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HISTORIA / STORYTELLING -->
+    <section id="historia">
+      <div class="head">
+        <h3>Storytelling · De un evento a una lección aprendida</h3>
+        <span class="muted">Secuencia de causa→detección→respuesta→mejora</span>
+      </div>
+      <ol class="timeline reveal">
+        <li class="step"><strong>Señal débil.</strong> Un sensor reporta una fluctuación mínima. Parece ruido… hasta que no lo es.</li>
+        <li class="step"><strong>Acumulación.</strong> Procesos paralelos ocultan el patrón y el monitoreo humano confía en automatismos.</li>
+        <li class="step"><strong>Incidente.</strong> Un fallo aislado se encadena con decisiones tardías y condiciones adversas.</li>
+        <li class="step"><strong>Respuesta.</strong> Protocolos, entrenamiento y diseño determinan la contención del daño.</li>
+        <li class="step"><strong>Aprendizaje.</strong> Se rediseñan salvaguardas, alarmas, interfaz y cultura de reporte.</li>
+      </ol>
+      <details class="reveal" open>
+        <summary><i class="fa-solid fa-circle-info"></i> ¿Por qué contar historias?</summary>
+        <div class="muted">La narrativa hace visibles las interacciones socio‑técnicas. No se trata de culpar, sino de mapear decisiones, condiciones y señales para fortalecer la resiliencia del sistema.</div>
+      </details>
+    </section>
+
+    <!-- TIMELINE DE CASOS INVESTIGADOS -->
+    <section id="timeline">
+      <div class="head">
+        <h3>🧭 Timeline de casos investigados</h3>
+        <span class="muted">Hitos y contexto temporal</span>
+      </div>
+      <ul class="timeline reveal">
+        <li class="step"><strong>1996 → Ariane 5:</strong> explosión del cohete europeo por error de conversión numérica.</li>
+        <li class="step"><strong>2011 → Metro de Shanghái Línea 10:</strong> colisión por fallo del sistema de control CBTC.</li>
+        <li class="step"><strong>2018–2019 → Boeing 737 MAX:</strong> dos accidentes mortales causados por el software MCAS.</li>
+      </ul>
+    </section>
+
+    <!-- CASOS CLAVE (resumen por dominios) -->
+    <section id="casos">
+      <div class="head">
+        <h3>Casos clave · Transporte, Aviación y Espacio</h3>
+        <span class="muted">Tarjetas interactivas con más detalles al hacer clic</span>
+      </div>
+      <div class="grid">
+        <!-- Transporte -->
+        <article class="card col-4 reveal" tabindex="0" role="button" aria-expanded="false" data-tip="Profundizar">
+          <div class="media">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.IjwljjSEiLPQgL97rN_2DwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Metro de Shanghái (referencial)"/>
+          </div>
+          <div class="body">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+              <h4 style="margin:0">Transporte ferroviario</h4>
+              <span class="tag warn"><i class="fa-solid fa-triangle-exclamation"></i> Señales</span>
+            </div>
+            <p class="muted">Errores de señalización y fatiga de materiales pueden provocar descarrilamientos. Interlocks, redundancia y mantenimiento predictivo mitigan riesgos.</p>
+            <details>
+              <summary><i class="fa-solid fa-plus"></i> Leer más</summary>
+              <ul class="muted" style="margin-top:10px">
+                <li>Factores humanos: carga cognitiva del maquinista, interfaz del panel.</li>
+                <li>Técnicos: fallas en circuitos de vía, fisuras en ejes.</li>
+                <li>Organizacionales: presión por tiempos, diferimiento de mantenimiento.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- Aviación -->
+        <article class="card col-4 reveal" tabindex="0" role="button" aria-expanded="false" data-tip="Profundizar">
+          <div class="media">
+            <img src="https://tse3.mm.bing.net/th/id/OIP.biBAvg5tcrI_BjUBB-_AIgHaE7?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Avión despegando"/>
+          </div>
+          <div class="body">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+              <h4 style="margin:0">Aviación</h4>
+              <span class="tag bad"><i class="fa-solid fa-fire-extinguisher"></i> Crítico</span>
+            </div>
+            <p class="muted">Automatización mal gestionada, datos erróneos de sensores o hielo en superficies pueden degradar el control de vuelo. El CRM y la conciencia situacional son vitales.</p>
+            <details>
+              <summary><i class="fa-solid fa-plus"></i> Leer más</summary>
+              <ul class="muted" style="margin-top:10px">
+                <li>Alarma/annunciator design: evitar saturación e incorporar prioridades.</li>
+                <li>Entrenamiento en degradaciones del piloto automático.</li>
+                <li>Briefings de despegue/aterrizaje con puntos de no‑retorno claros.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- Espacio -->
+        <article class="card col-4 reveal" tabindex="0" role="button" aria-expanded="false" data-tip="Profundizar">
+          <div class="media">
+            <img src="https://th.bing.com/th/id/R.3fa8e0888867046aac1afee787d0ff43?rik=e2xBFZl3xZZNtw&pid=ImgRaw&r=0" alt="Cohete despegando"/>
+          </div>
+          <div class="body">
+            <div style="display:flex; justify-content:space-between; align-items:center; gap:10px">
+              <h4 style="margin:0">Espacio</h4>
+              <span class="tag ok"><i class="fa-solid fa-shield"></i> Resiliencia</span>
+            </div>
+            <p class="muted">Vibraciones, radiación y ventanas de lanzamiento exigen tolerancia a fallos: triple modular redundancy, watchdogs y abort modes salvan misiones… y vidas.</p>
+            <details>
+              <summary><i class="fa-solid fa-plus"></i> Leer más</summary>
+              <ul class="muted" style="margin-top:10px">
+                <li>Gestión de propulsión y tanques criogénicos.</li>
+                <li>FMEA y simulación Monte Carlo para planificación.</li>
+                <li>Telemetría y límites «go/no‑go» dinámicos.</li>
+              </ul>
+            </details>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CASOS INVESTIGADOS (detalle) -->
+    <section id="casos-investigados">
+      <div class="head">
+        <h3>🛰️ Casos investigados (detalle)</h3>
+        <span class="muted">Ariane 5 · Boeing 737 MAX · Metro Shanghái L10</span>
+      </div>
+      <div class="grid">
+        <!-- Ariane 5 -->
+        <article class="card col-4 reveal">
+          <div class="media">
+            <img src="https://hackaday.com/wp-content/uploads/2016/06/explosion_of_first_ariane_5_flight_june_4_1996_blog_featured.jpg" alt="Ariane 5 Launch (1996)">
+          </div>
+          <div class="body">
+            <h4>CASO 1 – Ariane 5 (1996)</h4>
+            <p><em>Pérdida estimada:</em> más de US $370 millones tras autodestrucción 37 s después del despegue.</p>
+            <p><em>Error de software:</em> conversión errónea de un número en coma flotante de 64 bits a entero de 16 bits en el Sistema de Referencia Inercial (SRI). El <em>overflow</em> provocó una excepción no manejada que apagó los dos sistemas inerciales.</p>
+            <p><em>Pruebas faltantes:</em> pruebas de rango de valores, validación de excepciones y simulaciones en tiempo real.</p>
+            <p><em>Lección:</em> nunca reutilizar código de otro sistema sin analizar sus límites operacionales y condiciones reales.</p>
+          </div>
+        </article>
+        
+        <!-- Boeing 737 MAX -->
+        <article class="card col-4 reveal">
+          <div class="media">
+            <img src="https://image.cnbcfm.com/api/v1/image/108080615-1735567239676-gettyimages-2191141299-AFP_36RQ8JQ.jpeg?w=1920&h=1080" alt="Boeing 737 en pista (referencial)">
+          </div>
+          <div class="body">
+            <h4>✈️ CASO 2 – Boeing 737 MAX (2018–2019)</h4>
+            <p><em>Accidentes:</em> Lion Air 610 (2018) y Ethiopian 302 (2019) → 346 fallecidos.</p>
+            <p><em>Fallo de software:</em> el sistema MCAS usaba datos de un solo sensor y, ante lecturas erróneas, forzaba el descenso automático del avión.</p>
+            <p><em>Pruebas faltantes:</em> simulaciones de fallo de sensor, pruebas de redundancia, pruebas piloto‑máquina y validación documental.</p>
+            <p><em>Lección:</em> en sistemas críticos, la comunicación con el usuario (piloto) es tan esencial como el código. El software debe prever fallos y garantizar control humano.</p>
+          </div>
+        </article>
+
+        <!-- Metro Shanghái -->
+        <article class="card col-4 reveal">
+          <div class="media">
+            <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/About/General/2011/9/27/1317120514667/Firemen-in-Shanghai-rescu-007.jpg?width=465&dpr=1&s=none&crop=none" alt="Metro de Shanghái (referencial)">
+          </div>
+          <div class="body">
+            <h4>🚇 CASO 3 – Metro de Shanghái Línea 10 (2011)</h4>
+            <p><em>Evento:</em> colisión entre dos trenes durante actualización del software CBTC; 271 heridos y daños millonarios.</p>
+            <p><em>Causa:</em> pérdida de sincronización en tiempo real entre trenes y centro de control, que activó un modo manual sin datos confiables.</p>
+            <p><em>Pruebas faltantes:</em> test de integración en tiempo real, pruebas de conmutación de modos y <em>rollback</em>.</p>
+            <p><em>Lección:</em> las actualizaciones en operación activa deben pasar por entornos simulados y certificaciones de seguridad como DO‑178C / IEC 62290.</p>
+          </div>
+        </article>
+      </div>
+
+
+    </section>
+
+    <!-- ANÁLISIS COMPARATIVO -->
+    <section id="analisis">
+      <div class="head">
+        <h3>📊 Análisis comparativo</h3>
+        <span class="muted">Patrones comunes y pruebas preventivas</span>
+      </div>
+      <div class="panel reveal" style="padding:16px">
+        <div class="table-wrap">
+          <table aria-label="Tabla comparativa de casos">
+            <thead>
+              <tr>
+                <th>Caso</th>
+                <th>Tipo de error</th>
+                <th>Consecuencias</th>
+                <th>Pruebas que habrían prevenido</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ariane 5 (1996)</td>
+                <td>Conversión de datos / Overflow</td>
+                <td>Explosión – US $370 M</td>
+                <td>Pruebas de rango, manejo de excepciones</td>
+              </tr>
+              <tr>
+                <td>Boeing 737 MAX (2018–19)</td>
+                <td>Sensor único / Falta de redundancia</td>
+                <td>346 muertes – pérdidas millonarias</td>
+                <td>Pruebas de redundancia, simulación humano‑máquina</td>
+              </tr>
+              <tr>
+                <td>Metro Shanghái (2011)</td>
+                <td>Falla de sincronización en tiempo real</td>
+                <td>271 heridos – daños millonarios</td>
+                <td>Pruebas de integración y conmutación de modos</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="margin-top:12px"><strong>Patrón común:</strong> falta de validaciones en tiempo real y redundancia. Los tres casos evidencian carencias en pruebas de integración, manejo de errores y reutilización de código sin verificación.</p>
+      </div>
+    </section>
+
+    <!-- DATOS: gráfico canvas vanilla JS -->
+    <section id="datos">
+      <div class="head">
+        <h3>Datos · Patrones de causa (demo)</h3>
+        <span class="muted">Visualización simple de contribuciones típicas</span>
+      </div>
+      <div class="panel chart-wrap reveal">
+        <canvas id="barChart" width="900" height="420" aria-label="Gráfico de barras de causas típicas" role="img"></canvas>
+      </div>
+      <div class="muted" style="margin-top:10px">Nota: datos de ejemplo con fines educativos. Ajusta valores según tu investigación.</div>
+    </section>
+
+    <!-- REFLEXIONES PERSONALES -->
+    <section id="reflexiones">
+      <div class="head">
+        <h3>💭 Reflexiones personales</h3>
+        <span class="muted">Qué aprendimos durante la investigación</span>
+      </div>
+      <div class="grid">
+        <!-- Sebastián -->
+        <article class="card col-4 reveal">
+          <div class="media"><img id="img-sebastian" src="../web/IMG/Sebastián Carvajal.png" alt="Sebastián Carvajal"></div>
+          <div class="body">
+            <h4>🧑‍💻 Sebastián Carvajal</h4>
+            <p><strong>Qué pensabas antes de la investigación:</strong><br> Al principio creía que las fallas graves en sistemas críticos eran cosas del pasado o causadas por problemas mecánicos.</p>
+            <p><strong>Qué piensas ahora:</strong><br> Hoy sé que cada prueba omitida puede cambiar la historia. El caso del Ariane 5 me enseñó que reutilizar código sin probarlo puede causar desastres.</p>
+            <p><strong>Qué te sorprendió:</strong><br> Me impresionó cómo un error numérico destruyó un cohete entero y millones de dólares de inversión.</p>
+            <p><strong>Cómo cambió tu visión:</strong><br> Ahora veo las pruebas como un deber ético. La seguridad, trazabilidad y redundancia son esenciales. Cada descuido puede ser una tragedia.</p>
+          </div>
+        </article>
+        
+        <!-- Yeison -->
+        <article class="card col-4 reveal">
+          <div class="media"><img id="img-yeison" src="../web/IMG/Yeison Roa.png" alt="Yeison Roa"></div>
+          <div class="body">
+            <h4>👨‍🚀 Yeison Roa</h4>
+            <p><strong>Qué pensabas antes:</strong><br> Veía las pruebas como un paso final para comprobar que el sistema funcionara, sin imaginar su impacto real.</p>
+            <p><strong>Qué piensas ahora:</strong><br> Aprendí que los errores de software crítico pueden costar vidas. El Boeing 737 MAX lo demuestra: depender de un solo sensor fue fatal.</p>
+            <p><strong>Qué te impactó:</strong><br> Comprendí que un fallo técnico también es un fallo ético cuando compromete vidas humanas.</p>
+            <p><strong>Cómo cambió tu visión:</strong><br> Ahora entiendo que las normas DO‑178C no son burocracia, sino salvaguardas vitales. Programar es un acto de responsabilidad.</p>
+          </div>
+        </article>
+
+        <!-- Juan Diego -->
+        <article class="card col-4 reveal">
+          <div class="media"><img id="img-juan" src="../web/IMG/Juan Diego Paz.png" alt="Juan Diego Paz"></div>
+          <div class="body">
+            <h4>👨‍💼 Juan Diego Paz</h4>
+            <p><strong>Qué pensabas antes:</strong><br> Creía que los errores en grandes sistemas eran inevitables y que bastaba con corregirlos rápido.</p>
+            <p><strong>Qué piensas ahora:</strong><br> El caso del Metro de Shanghái mostró que actualizar software sin simulación puede ser tan peligroso como un error de diseño.</p>
+            <p><strong>Qué te sorprendió:</strong><br> Ver que una simple actualización causó 271 heridos me hizo valorar la importancia de las pruebas en tiempo real.</p>
+            <p><strong>Cómo cambió tu visión:</strong><br> Ahora comprendo que el desarrollo responsable significa anticipar riesgos. Cada sistema debe ser seguro, probado y humano.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- RECURSOS: video + enlaces -->
+    <section id="recursos">
+      <div class="head">
+        <h3>Recursos y multimedios</h3>
+        <span class="muted">Videos, documentos y enlaces útiles</span>
+      </div>
+      <div class="grid">
+        <div class="col-6">
+          <div class="panel reveal" style="overflow:hidden">
+            <div class="media" style="height:auto">
+              <iframe width="100%" height="315" src="https://www.youtube.com/@NASA" title="NASA Live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="body">
+              <h4 style="margin-top:0">NASA Live</h4>
+              <p class="muted">Transmisiones y materiales educativos para comprender operaciones espaciales y telemetría.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="panel reveal" style="padding:16px">
+            <h4 style="margin:0 0 10px">Lecturas rápidas</h4>
+            <ul class="muted">
+              <li><a href="#" onclick="alert('Este es un ejemplo de enlace interno. Reemplázalo por tus fuentes.'); return false;">Diseño de alarmas en cabina</a></li>
+              <li><a href="#" onclick="alert('Ejemplo de guía de FMEA.'); return false;">Plantilla FMEA para transporte</a></li>
+              <li><a href="#" onclick="alert('Buenas prácticas de mantenimiento predictivo.'); return false;">Mantenimiento predictivo 101</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REFERENCIAS -->
+    <section id="referencias">
+      <div class="head">
+        <h3>📚 Referencias</h3>
+        <span class="muted">Casos investigados · Estándares · Imágenes · Otros</span>
+      </div>
+      <div class="grid">
+        <div class="col-6">
+          <div class="panel" style="padding:16px">
+            <h4 style="margin-top:0">Casos investigados</h4>
+            <ul>
+              <li>European Space Agency (ESA). (1996). <em>Ariane 5 Flight 501 Failure Report.</em></li>
+              <li>Lions, J. L., & ESA Inquiry Board. (1996). <em>Report on the Ariane 501 Failure.</em> Paris: ESA.</li>
+              <li>Boeing Company (2020). <em>Boeing 737 MAX Flight Control System and MCAS Summary.</em></li>
+              <li>Federal Aviation Administration (2020). <em>The Boeing 737 MAX Return to Service Report.</em></li>
+              <li>Ethiopian Civil Aviation Authority (2020). <em>Final Report: Ethiopian Airlines Flight 302.</em></li>
+              <li>Civil Aviation Authority of Indonesia (2019). <em>Final Report: Lion Air JT610 Accident.</em></li>
+              <li>Reuters (2011). Shanghai Metro crash injures 271 people after signal failure.</li>
+              <li>The Guardian (2011). Firemen in Shanghai rescue passengers after subway crash.</li>
+              <li>China State Council (2012). <em>Official Report on the Wenzhou and Shanghai Metro Accidents.</em> Beijing.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="panel" style="padding:16px">
+            <h4 style="margin-top:0">Estándares y fundamentos técnicos</h4>
+            <ul>
+              <li>RTCA DO‑178C (2011). <em>Software Considerations in Airborne Systems and Equipment Certification.</em> RTCA.</li>
+              <li>IEC 62290‑1 (2014). <em>Railway Applications – Urban Guided Transport Systems.</em> IEC.</li>
+              <li>ISO/IEC/IEEE 29119‑1 (2013). <em>Software Testing – Concepts and Definitions.</em> ISO.</li>
+              <li>IEEE Std 1012‑2016. <em>System and Software Verification and Validation.</em> IEEE.</li>
+              <li>Kopetz, H. (2011). <em>Real‑Time Systems.</em> Springer.</li>
+              <li>Knight, J. C. (2012). <em>Safety Critical Systems.</em> IEEE Computer.</li>
+              <li>Leveson, N. (2011). <em>Engineering a Safer World.</em> MIT Press.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="panel" style="padding:16px">
+            <h4 style="margin-top:0">Imágenes y recursos multimedia</h4>
+            <ul>
+              <li>Reuters Images (2011). Shanghai Metro Line 10 Crash. <a href="https://www.reuters.com/article/us-china-shanghai-metro-idUSTRE78Q2BU20110927" target="_blank" rel="noopener">reuters.com</a></li>
+              <li>Unsplash (2020). Software Engineer at Work by ThisisEngineering. <a href="https://unsplash.com/photos/5fNmWej4tAA" target="_blank" rel="noopener">unsplash.com</a></li>
+              <li>ESA Image Archive (1996). Ariane 5 Flight 501 Launch. <a href="https://www.esa.int/Enabling_Support/Operations/Ariane_5" target="_blank" rel="noopener">esa.int</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="panel" style="padding:16px">
+            <h4 style="margin-top:0">Otros recursos</h4>
+            <ul>
+              <li>U.S. Department of Justice (2021). <em>Deferred Prosecution Agreement with The Boeing Company.</em></li>
+              <li>NASA Software Assurance Guidebook (2020). <em>Software Safety and Reliability Practices.</em></li>
+              <li>Emirates 24/7 (2011). <em>Shanghai Subway Trains Crash – Hundreds Injured.</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EQUIPO (mensaje de colaboración) -->
+    <section id="equipo">
+      <div class="head">
+        <h3>Nuestro equipo</h3>
+        <span class="muted">Multidisciplinario · Explicamos lo complejo con claridad</span>
+      </div>
+      <div class="grid">
+        <div class="col-6">
+          <div class="card reveal">
+            <div class="body">
+              <h4 style="margin:0 0 6px">Equipo 4: Sistemas Críticos</h4>
+              <p class="muted">Ingeniería de sistemas, aeronáutica, factores humanos y visualización de datos. Nos enfocamos en <em>aprender de los fallos</em> para diseñar sistemas más seguros.</p>
+              <div style="display:flex; gap:10px; flex-wrap:wrap">
+                <span class="tag"><i class="fa-solid fa-eye"></i> Observabilidad</span>
+                <span class="tag"><i class="fa-solid fa-people-group"></i> CRM</span>
+                <span class="tag"><i class="fa-solid fa-gears"></i> Redundancia</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="card reveal">
+            <div class="body">
+              <h4 style="margin:0 0 6px">¿Quieres colaborar?</h4>
+              <p class="muted">Comparte tus hallazgos o integra tus datos. Esta página está lista para ampliarse con tus casos, gráficos y referencias.</p>
+              <button class="btn" onclick="openDialog()"><i class="fa-regular fa-paper-plane"></i> Enviar comentario</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <span id="year"></span> Equipo 4 — Sistemas Críticos · Transporte y Aeroespacial · <span class="muted">Hecho con HTML, CSS y JavaScript</span></p>
+      <a href="#inicio" class="muted">Volver al inicio</a>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button id="backTop" class="btn top" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <!-- Dialog modal -->
+  <dialog id="feedback" style="border:none; border-radius:16px; padding:0; width:min(560px, 96vw); box-shadow: var(--shadow)">
+    <form method="dialog" style="background:var(--panel); color:var(--text); border:1px solid rgba(255,255,255,.12); border-radius:16px; overflow:hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center; padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08)">
+        <strong>Envíanos tus ideas</strong>
+        <button class="btn secondary" value="cancel" formmethod="dialog">Cerrar</button>
+      </div>
+      <div style="padding:16px; display:grid; gap:10px">
+        <label>Nombre
+          <input required type="text" placeholder="Tu nombre" style="width:100%; margin-top:6px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:var(--panel-2); color:var(--text)"/>
+        </label>
+        <label>Comentario
+          <textarea required rows="4" placeholder="Comparte sugerencias o casos" style="width:100%; margin-top:6px; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:var(--panel-2); color:var(--text)"></textarea>
+        </label>
+      </div>
+      <div style="padding:14px 16px; display:flex; justify-content:flex-end; gap:10px; border-top:1px solid rgba(255,255,255,.08)">
+        <button class="btn secondary" value="cancel">Cancelar</button>
+        <button class="btn" value="ok">Enviar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script>
+    // Utilidades
+    const $ = (q, root=document) => root.querySelector(q)
+    const $$ = (q, root=document) => Array.from(root.querySelectorAll(q))
+
+    // Año en footer
+    $('#year').textContent = new Date().getFullYear()
+
+    // Back to top
+    const topBtn = $('#backTop')
+    topBtn.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}))
+    const onScrollTop = () => {
+      if (window.scrollY > 300) topBtn.classList.add('show'); else topBtn.classList.remove('show')
+    }
+    window.addEventListener('scroll', onScrollTop); onScrollTop()
+
+    // Animaciones on-scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
+      })
+    }, {threshold:.15})
+    $$('.reveal').forEach(el => io.observe(el))
+
+    $1
+    // Fallbacks para fotos locales del equipo (acepta variantes de nombre/extension)
+    function setBestSrc(id, sources){
+      const img = document.getElementById(id); if(!img) return;
+      let i = 0; const tryNext = ()=>{ if(i>=sources.length) return; img.onerror = tryNext; img.src = sources[i++]; };
+      // inicia intentando con el src existente y luego con las variantes
+      const first = img.getAttribute('src'); const rest = sources.filter(s=>s!==first); img.onerror = ()=>{ tryNext(); };
+      // Forzamos probar el primero de la lista si falla el actual
+      const tester = new Image(); tester.onerror = tryNext; tester.onload = ()=>{ img.src = tester.src; };
+      tester.src = first;
+    }
+    setBestSrc('img-sebastian', ['IMG/Sebastián.jpg','IMG/Sebastian.jpg','IMG/sebastian.jpg','IMG/Sebastian.jpeg','IMG/sebastian.jpeg','IMG/Sebastián.png','IMG/Sebastian.png','IMG/sebastian.png']);
+    setBestSrc('img-yeison', ['IMG/Yeison.jpg','IMG/yeison.jpg','IMG/YEISON.jpg','IMG/Yeison.jpeg','IMG/yeison.jpeg','IMG/Yeison.png','IMG/yeison.png']);
+    setBestSrc('img-juan', ['IMG/Juan Diego.jpg','IMG/Juan_Diego.jpg','IMG/JuanDiego.jpg','IMG/juan-diego.jpg','IMG/juan diego.jpg','IMG/juan_diego.jpg','IMG/juandiego.jpg','IMG/JuanDiego.png','IMG/juan-diego.png']);
+
+    // Cards: expandir con teclado Enter/Espacio
+    $$('#casos .card').forEach(card => {
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const det = card.querySelector('details')
+          if (det) { det.open = !det.open }
+          e.preventDefault()
+        }
+      })
+    })
+
+    // Gráfico de barras vanilla canvas
+    const ctx = $('#barChart').getContext('2d')
+    const labels = ['Factor humano', 'Sensor/Software', 'Mecánico', 'Entorno', 'Organización']
+    const values = [42, 33, 28, 19, 24] // demo
+
+    const W = ctx.canvas.width, H = ctx.canvas.height
+    const pad = 48, axis = {left:pad, top: pad, right: W - pad, bottom: H - pad}
+    const maxVal = Math.max(...values) * 1.2
+    const bw = (axis.right - axis.left) / values.length * .6
+
+    // Fondo
+    const grad = ctx.createLinearGradient(0,0,0,H)
+    grad.addColorStop(0,'rgba(124,255,183,0.15)')
+    grad.addColorStop(1,'rgba(102,224,255,0.09)')
+    ctx.fillStyle = grad
+    ctx.fillRect(0,0,W,H)
+
+    // Ejes
+    ctx.strokeStyle = 'rgba(255,255,255,0.25)'
+    ctx.lineWidth = 1
+    ctx.beginPath()
+    ctx.moveTo(axis.left, axis.top)
+    ctx.lineTo(axis.left, axis.bottom)
+    ctx.lineTo(axis.right, axis.bottom)
+    ctx.stroke()
+
+    // Líneas guía y etiquetas Y
+    ctx.fillStyle = 'rgba(230,237,247,0.75)'
+    ctx.font = '12px Inter'
+    const steps = 4
+    for (let i=1;i<=steps;i++){
+      const y = axis.bottom - (i/steps)*(axis.bottom-axis.top)
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      ctx.beginPath(); ctx.moveTo(axis.left, y); ctx.lineTo(axis.right, y); ctx.stroke()
+      const val = Math.round((i/steps)*maxVal)
+      ctx.fillText(val.toString(), axis.left-32, y+4)
+    }
+
+    // Barras con animación simple
+    let t = 0
+    const animate = () => {
+      t = Math.min(1, t + 0.02)
+      // borrar área de dibujo de barras
+      ctx.clearRect(axis.left+1, axis.top+1, axis.right-axis.left-2, axis.bottom-axis.top-2)
+      // redibujar rejilla ligera
+      ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+      for (let i=1;i<=steps;i++){
+        const y = axis.bottom - (i/steps)*(axis.bottom-axis.top)
+        ctx.beginPath(); ctx.moveTo(axis.left, y); ctx.lineTo(axis.right, y); ctx.stroke()
+      }
+
+      values.forEach((v, i) => {
+        const xCenter = axis.left + (i+0.5) * ((axis.right-axis.left)/values.length)
+        const half = bw/2
+        const barH = (v/maxVal) * (axis.bottom-axis.top) * t
+        const x = xCenter - half
+        const y = axis.bottom - barH
+        // gradiente barra
+        const g = ctx.createLinearGradient(0,y,0,axis.bottom)
+        g.addColorStop(0,'#66e0ff'); g.addColorStop(1,'#7cffb7')
+        ctx.fillStyle = g
+        ctx.fillRect(x, y, bw, barH)
+        // etiqueta X
+        ctx.fillStyle = 'rgba(230,237,247,0.85)'
+        ctx.textAlign = 'center'
+        // Multilínea simple
+        const words = labels[i].split(' ')
+        if(words.length>1){
+          ctx.fillText(words[0], xCenter, axis.bottom+18)
+          ctx.fillText(words.slice(1).join(' '), xCenter, axis.bottom+34)
+        } else { ctx.fillText(labels[i], xCenter, axis.bottom+20) }
+      })
+      if (t < 1) requestAnimationFrame(animate)
+    }
+    animate()
+  </script>
+</body>
+</html>
 
