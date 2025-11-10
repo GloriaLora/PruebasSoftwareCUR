@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>README — Errores Tecnológicos</title>
+  <link rel="stylesheet" href="css/readme.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <h1>Errores Tecnológicos</h1>
+          <p class="lead">Proyecto académico — Equipo 6</p>
+        </div>
+      </div>
+      
+    </header>
+
+    <main class="readme">
+      <section class="intro">
+        <h1>README del Proyecto</h1>
+        <p>Este documento ofrece una visión general del proyecto <strong>“Errores Tecnológicos”</strong>, que analiza fallas reales en plataformas digitales y sus repercusiones en el entorno del comercio electrónico y la tecnología.</p>
+        <p><strong>Fecha de creación:</strong> Octubre de 2025</p>
+        <p><strong>Integrantes del equipo:</strong> Mariana Gil García y colaboradores del Equipo 6 — E-commerce y Retail.</p>
+      </section>
+
+      <div class="accordion">
+        <button class="accordion-btn">Objetivo General</button>
+        <div class="panel">
+          <p>Investigar y analizar errores tecnológicos significativos en sistemas de información y plataformas digitales, identificando sus causas, consecuencias y estrategias de mitigación, con el fin de promover prácticas más seguras y eficientes en el ámbito del desarrollo de software.</p>
+        </div>
+
+        <button class="accordion-btn">Objetivos Específicos</button>
+        <div class="panel">
+          <ul>
+            <li>Describir los principales errores tecnológicos en sistemas empresariales recientes.</li>
+            <li>Evaluar las consecuencias económicas y sociales derivadas de dichos errores.</li>
+            <li>Proponer buenas prácticas para prevenir fallas en entornos digitales complejos.</li>
+            <li>Difundir los hallazgos mediante un sitio web interactivo con casos y análisis.</li>
+          </ul>
+        </div>
+
+        <button class="accordion-btn">Justificación</button>
+        <div class="panel">
+          <p>El crecimiento acelerado del comercio digital y la dependencia tecnológica han incrementado el impacto de los errores informáticos. Un pequeño fallo puede paralizar operaciones, causar pérdidas millonarias y afectar la reputación de empresas globales. Este proyecto busca comprender esas fallas para generar conciencia y fortalecer la resiliencia tecnológica.</p>
+        </div>
+
+        <button class="accordion-btn">Estructura del Proyecto</button>
+        <div class="panel">
+          <p>El proyecto se divide en cuatro secciones principales:</p>
+          <ol>
+            <li><strong>Inicio:</strong> Presentación general y acceso a los diferentes apartados.</li>
+            <li><strong>Casos:</strong> Cuatro estudios reales de errores tecnológicos.</li>
+            <li><strong>Investigación:</strong> Análisis académico de los fallos más relevantes.</li>
+            <li><strong>Recursos:</strong> Fuentes, herramientas y referencias empleadas.</li>
+          </ol>
+        </div>
+
+        <button class="accordion-btn">Resultados Esperados</button>
+        <div class="panel">
+          <ul>
+            <li>Identificar patrones comunes en fallos de infraestructura digital.</li>
+            <li>Crear material educativo útil para futuros desarrolladores e ingenieros.</li>
+            <li>Contribuir al fortalecimiento de una cultura de prevención tecnológica.</li>
+          </ul>
+        </div>
+
+        <button class="accordion-btn">Conclusiones</button>
+        <div class="panel">
+          <p>El estudio de los errores tecnológicos no busca señalar culpables, sino aprender de los fallos para construir sistemas más sólidos. Comprender sus causas y efectos es clave para reducir riesgos, mejorar procesos y fomentar la innovación responsable en la era digital.</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="volver">← Volver al inicio</a>
+    </main>
+
+    <footer>
+      <p>Proyecto académico · Equipo 6 — E-commerce & Retail · 2025</p>
+    </footer>
+  </div>
+
+  <script>
+    const buttons=document.querySelectorAll(".accordion-btn");
+    buttons.forEach(btn=>{
+      btn.addEventListener("click",()=>{
+        const panel=btn.nextElementSibling;
+        btn.classList.toggle("active");
+        if(panel.style.maxHeight){
+          panel.style.maxHeight=null;
+        }else{
+          panel.style.maxHeight=panel.scrollHeight+"px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

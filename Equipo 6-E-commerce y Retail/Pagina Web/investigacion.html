@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Investigación — Errores en Sistemas de E-commerce</title>
+  <link rel="stylesheet" href="css/investigacion.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Metadatos: contenido extraído de investigacion.md. :contentReference[oaicite:1]{index=1} -->
+    <header>
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <h1>Investigación — Errores en E-commerce</h1>
+          <p class="lead">Equipo 6 · Versión 1.0 · Última actualización: 25 Oct 2025</p>
+        </div>
+      </div>
+      
+    </header>
+
+    <main class="investigacion">
+      <section class="hero">
+        <div class="meta">
+          <p><strong>Equipo:</strong> E-commerce y Retail — <strong>Fecha:</strong> 25 de Octubre, 2025 — <strong>Versión:</strong> 1.0</p>
+        </div>
+
+        <div class="intro">
+          <h2>Resumen Ejecutivo</h2>
+          <p>Esta investigación documenta casos críticos de fallos de software en sistemas de comercio electrónico que resultaron en pérdidas millonarias. El análisis revela que la mayoría de estos desastres pudieron prevenirse con pruebas adecuadas de carga, estrés, integración y seguridad.</p>
+
+          <h3>Hallazgos Clave</h3>
+          <ol>
+            <li><strong>Impacto Financiero:</strong> Los costos de downtime en e-commerce promedian entre $5,600 y $83,000 por minuto.</li>
+            <li><strong>Causa Principal:</strong> 70% de los fallos se deben a falta de pruebas de carga y escalabilidad.</li>
+            <li><strong>Eventos Críticos:</strong> Black Friday y Cyber Monday concentran el 40% de los incidentes anuales.</li>
+            <li><strong>Pagos:</strong> Los errores en sistemas de pago representan pérdidas del 0.8%–2% del volumen total.</li>
+          </ol>
+
+          <h3>Recomendaciones Principales (resumen)</h3>
+          <ul>
+            <li>Implementar pruebas de carga antes de eventos de alta demanda.</li>
+            <li>Establecer sistemas de monitoreo en tiempo real.</li>
+            <li>Contar con redundancia y failover automático.</li>
+            <li>Realizar auditorías de seguridad periódicas.</li>
+            <li>Implementar idempotencia en sistemas de pago.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Índice rápido -->
+      <aside class="indice">
+        <h3>Índice</h3>
+        <ul>
+          <li><a href="#introduccion">1. Introducción</a></li>
+          <li><a href="#marco">2. Marco Teórico</a></li>
+          <li><a href="#metodologia">3. Metodología</a></li>
+          <li><a href="#analisis">4. Análisis de Casos</a></li>
+          <li><a href="#patrones">5. Patrones y Tendencias</a></li>
+          <li><a href="#framework">6. Framework de Testing</a></li>
+          <li><a href="#recomendaciones">7. Recomendaciones</a></li>
+          <li><a href="#conclusiones">8. Conclusiones</a></li>
+          <li><a href="#limitaciones">9. Limitaciones</a></li>
+          <li><a href="#trabajo-futuro">10. Trabajo Futuro</a></li>
+          <li><a href="#referencias">Referencias</a></li>
+        </ul>
+      </aside>
+
+      <!-- Accordion: todas las secciones cerradas por defecto -->
+      <div class="accordion">
+
+        <!-- 1 Introducción -->
+        <button class="accordion-btn" data-target="introduccion">1. Introducción</button>
+        <div id="introduccion" class="panel">
+          <h4>1.1 Contexto</h4>
+          <p>El comercio electrónico ha experimentado un crecimiento exponencial, alcanzando $70.9 mil millones en ventas durante Black Friday 2023 en Estados Unidos. Este crecimiento expone debilidades en infraestructura tecnológica.</p>
+
+          <h4>1.2 Problema de investigación</h4>
+          <p><strong>Pregunta Principal:</strong> ¿Cómo los fallos de software por falta de pruebas adecuadas impactan financiera y operativamente a las empresas de e-commerce?</p>
+          <p><strong>Preguntas secundarias:</strong></p>
+          <ul>
+            <li>¿Qué tipos de errores son más comunes?</li>
+            <li>¿Cuáles son los costos asociados?</li>
+            <li>¿Qué pruebas pudieron prevenir estos fallos?</li>
+            <li>¿Cuáles son las mejores prácticas para evitarlos?</li>
+          </ul>
+
+          <h4>1.3 Objetivos</h4>
+          <p><strong>Objetivo general:</strong> Analizar casos reales de fallos críticos en sistemas de e-commerce para identificar patrones, costos y medidas preventivas.</p>
+          <p><strong>Objetivos específicos:</strong></p>
+          <ol>
+            <li>Documentar al menos 4 casos con impacto &gt; $1M.</li>
+            <li>Cuantificar el impacto financiero de cada caso.</li>
+            <li>Identificar las pruebas faltantes.</li>
+            <li>Proponer un framework de testing para e-commerce.</li>
+          </ol>
+        </div>
+
+        <!-- 2 Marco Teórico -->
+        <button class="accordion-btn" data-target="marco">2. Marco Teórico</button>
+        <div id="marco" class="panel">
+          <h4>2.1 Tipos de pruebas esenciales</h4>
+          <h5>2.1.1 Pruebas funcionales</h5>
+          <ul>
+            <li><strong>Unit Testing:</strong> Verificación de componentes individuales.</li>
+            <li><strong>Integration Testing:</strong> Prueba de integración entre módulos.</li>
+            <li><strong>End-to-End Testing:</strong> Validación de flujos completos de usuario.</li>
+          </ul>
+
+          <h5>2.1.2 Pruebas de rendimiento</h5>
+          <ul>
+            <li><strong>Load Testing:</strong> Comportamiento bajo carga esperada.</li>
+            <li><strong>Stress Testing:</strong> Límites del sistema bajo presión extrema.</li>
+            <li><strong>Spike Testing:</strong> Respuesta a incrementos súbitos de tráfico.</li>
+            <li><strong>Soak Testing:</strong> Estabilidad durante períodos prolongados.</li>
+          </ul>
+
+          <h5>2.1.3 Pruebas de seguridad</h5>
+          <ul>
+            <li><strong>Penetration Testing</strong></li>
+            <li><strong>Security Audits</strong></li>
+            <li><strong>PCI DSS Compliance</strong></li>
+          </ul>
+
+          <h5>2.1.4 Pruebas de integración</h5>
+          <ul>
+            <li>Payment Gateway Testing</li>
+            <li>Third-Party API Testing</li>
+            <li>Database Testing</li>
+          </ul>
+
+          <h4>2.2 Arquitecturas de alta disponibilidad</h4>
+          <p><strong>Componentes críticos:</strong> Load Balancers, CDN, Redundancia, Auto-scaling, Monitoring.</p>
+          <p><strong>Patrones de diseño recomendados:</strong> Microservicios, Event-Driven, CQRS, Circuit Breaker, Bulkhead.</p>
+
+          <h4>2.3 Métricas de Rendimiento</h4>
+          <table class="metrics">
+            <thead><tr><th>Métrica</th><th>Objetivo</th><th>Crítico</th></tr></thead>
+            <tbody>
+              <tr><td>Uptime</td><td>99.9%</td><td>&lt;99%</td></tr>
+              <tr><td>Response Time</td><td>&lt;2s</td><td>&gt;5s</td></tr>
+              <tr><td>Error Rate</td><td>&lt;0.1%</td><td>&gt;1%</td></tr>
+              <tr><td>Throughput</td><td>&gt;1000 req/s</td><td>&lt;500 req/s</td></tr>
+              <tr><td>MTTR</td><td>&lt;15 min</td><td>&gt;1 hora</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 3 Metodologia -->
+        <button class="accordion-btn" data-target="metodologia">3. Metodología de Investigación</button>
+        <div id="metodologia" class="panel">
+          <h4>3.1 Enfoque y diseño</h4>
+          <p><strong>Tipo:</strong> Estudio de casos múltiples con análisis cualitativo y cuantitativo.</p>
+          <p><strong>Diseño:</strong> Descriptivo-analítico con enfoque retrospectivo.</p>
+
+          <h4>3.2 Criterios de selección</h4>
+          <ul>
+            <li>Impacto financiero &gt; $1M</li>
+            <li>Documentación pública verificable</li>
+            <li>Ocurrencia en últimos 10 años</li>
+            <li>Diversidad de tipos de fallos</li>
+            <li>Lecciones aplicables</li>
+          </ul>
+
+          <h4>3.3 Fuentes</h4>
+          <p><strong>Primarias:</strong> reportes oficiales, declaraciones, analistas, reportes regulatorios.</p>
+          <p><strong>Secundarias:</strong> prensa especializada, blogs técnicos, estudios académicos, consultoras.</p>
+
+          <h4>3.4 Proceso</h4>
+          <ol>
+            <li>Recolección de datos (búsqueda sistemática, verificación cruzada).</li>
+            <li>Análisis de casos (timeline, causa raíz, cuantificación).</li>
+            <li>Síntesis (patrones, clasificación, recomendaciones).</li>
+          </ol>
+        </div>
+
+        <!-- 4 Analisis de Casos -->
+        <button class="accordion-btn" data-target="analisis">4. Análisis de Casos</button>
+        <div id="analisis" class="panel">
+          <h4>Resumen comparativo</h4>
+          <table class="comparative">
+            <thead><tr><th>Caso</th><th>Empresa</th><th>Año</th><th>Tipo</th><th>Costo</th><th>Afectados</th><th>Duración</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>United Airlines</td><td>2013</td><td>Pricing</td><td>Desconocido</td><td>Miles</td><td>2 horas</td></tr>
+              <tr><td>2</td><td>British Airways</td><td>2017</td><td>IT Outage</td><td>$100M+</td><td>75,000</td><td>3 días</td></tr>
+              <tr><td>3</td><td>J.Crew</td><td>2018</td><td>Traffic</td><td>$775K</td><td>Miles</td><td>5 horas</td></tr>
+              <tr><td>4</td><td>Various</td><td>2020-2024</td><td>Payment</td><td>Millions</td><td>Millones</td><td>Variable</td></tr>
+            </tbody>
+          </table>
+
+          <!-- 4.1 Caso 1 -->
+          <h5>4.1 Caso 1: United Airlines — Error de Precio</h5>
+          <p><strong>Resumen:</strong> En septiembre de 2013, un error en el sistema de pricing resultó en vuelos vendidos entre $0 y $10.</p>
+          <p><strong>Causa raíz:</strong> Error en entrada de tarifas, falta de validación de precios mínimos, sin alertas automáticas.</p>
+          <p><strong>Impacto:</strong> Miles de tickets vendidos; la aerolínea decidió honrar la mayoría; daño reputacional mitigado.</p>
+          <p><strong>Pruebas faltantes:</strong> Validación de rangos, testing de pricing, alertas de anomalías, smoke testing post-deploy.</p>
+          <p><strong>Lecciones:</strong> Validación de reglas, límites de precios, monitoreo y procedimientos de manejo de errores.</p>
+
+          <!-- 4.2 Caso 2 -->
+          <h5>4.2 Caso 2: British Airways — Colapso Total</h5>
+          <p><strong>Resumen:</strong> Mayo 2017, fallo de energía en datacenter causó colapso total.</p>
+          <p><strong>Causa raíz:</strong> Contratista desconectó fuente de poder, backup no activó correctamente, infraestructura obsoleta.</p>
+          <p><strong>Impacto financiero:</strong> £80-150M estimados (~$100-190M USD); compensaciones ~£50M; pérdida ~£30M/día.</p>
+          <p><strong>Impacto operacional:</strong> 75,000 pasajeros afectados; 800+ vuelos cancelados; 3 días de operaciones limitadas.</p>
+          <p><strong>Pruebas faltantes:</strong> Disaster recovery, failover, redundancy, chaos engineering.</p>
+
+          <!-- 4.3 Caso 3 -->
+          <h5>4.3 Caso 3: Black Friday / Cyber Monday — Caídas</h5>
+          <p>Documentados: J.Crew (2018, $775K), Harvey Norman (2023, 60% ventas perdidas), Nike (2022), Costco (2024).</p>
+          <p><strong>Estadísticas:</strong> Gasto 2023 $70.9B (USA). Tráfico online +24.1% y Cyber Monday +42% en checkout.</p>
+          <p><strong>Pruebas faltantes:</strong> Load testing 3–5x, stress/spike testing, capacity planning, CDN/DB optimizaciones.</p>
+
+          <!-- 4.4 Caso 4 -->
+          <h5>4.4 Caso 4: Errores en Sistemas de Pago</h5>
+          <p><strong>Tipos:</strong> Cobros duplicados, transacciones fallidas, AWS outage (Oct 2024).</p>
+          <p><strong>Problemas técnicos:</strong> falta de idempotencia, errores de reconciliación, problemas de gateway.</p>
+
+          <table class="impact">
+            <thead><tr><th>Error</th><th>% de Volumen</th><th>Costo Anual (Enterprise)</th></tr></thead>
+            <tbody>
+              <tr><td>Duplicate Charges</td><td>0.8-2%</td><td>$500K-2M</td></tr>
+              <tr><td>Failed Payments</td><td>7%</td><td>$1-5M</td></tr>
+              <tr><td>Manual Reconciliation</td><td>-</td><td>$200K-500K</td></tr>
+              <tr><td>Fraud/Chargebacks</td><td>0.1-0.3%</td><td>$300K-1M</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 5 Patrones y tendencias -->
+        <button class="accordion-btn" data-target="patrones">5. Patrones y Tendencias</button>
+        <div id="patrones" class="panel">
+          <h4>5.1 Causas comunes</h4>
+          <table class="patterns">
+            <thead><tr><th>Causa</th><th>Frecuencia</th><th>Prevención</th></tr></thead>
+            <tbody>
+              <tr><td>Falta de Load Testing</td><td>35%</td><td>Performance testing regular</td></tr>
+              <tr><td>Infraestructura obsoleta</td><td>25%</td><td>Inversión continua en IT</td></tr>
+              <tr><td>Falta de redundancia</td><td>20%</td><td>High availability architecture</td></tr>
+              <tr><td>Errores humanos</td><td>15%</td><td>Automation + training</td></tr>
+              <tr><td>Third-party failures</td><td>5%</td><td>Integration testing + monitoring</td></tr>
+            </tbody>
+          </table>
+
+          <h4>5.2 Sectores vulnerables</h4>
+          <ol>
+            <li>Airlines (legacy systems)</li>
+            <li>Retail (picos impredecibles)</li>
+            <li>Banking/Payments (regulación)</li>
+            <li>Subscription services (billing)</li>
+          </ol>
+
+          <h4>5.3 Momentos críticos</h4>
+          <ul>
+            <li>Black Friday / Cyber Monday — 40% incidentes</li>
+            <li>Prime Day / Eventos especiales — 25%</li>
+            <li>Deployments mayores — 15%</li>
+            <li>Migraciones — 10%</li>
+            <li>Otros — 10%</li>
+          </ul>
+        </div>
+
+        <!-- 6 Framework -->
+        <button class="accordion-btn" data-target="framework">6. Framework de Testing para E-commerce</button>
+        <div id="framework" class="panel">
+          <h4>6.1 Pirámide de Testing</h4>
+          <pre class="code-block"><code>
+        /\
+       /  \
+      / E2E \         ← 10% tests
+     /______\
+    /        \
+   / Integration \    ← 20% tests
+  /______________\
+ /                \
+/   Unit Tests     \  ← 70% tests
+/____________________\
+          </code></pre>
+
+          <h4>6.2 Testing Pre-Producción (Phases)</h4>
+          <h5>Phase 1: Development (Continuo)</h5>
+          <ul>
+            <li>Unit tests (&gt;80% coverage)</li>
+            <li>Integration tests</li>
+            <li>Code quality analysis</li>
+            <li>Security scanning</li>
+          </ul>
+
+          <h5>Phase 2: Staging (Semanal)</h5>
+          <ul>
+            <li>End-to-end tests</li>
+            <li>API testing</li>
+            <li>Database testing</li>
+            <li>Security testing</li>
+          </ul>
+
+          <h5>Phase 3: Pre-Release (Antes de eventos)</h5>
+          <ul>
+            <li>Load testing (3x tráfico esperado)</li>
+            <li>Stress testing</li>
+            <li>Chaos engineering</li>
+            <li>Disaster recovery drills</li>
+          </ul>
+
+          <h4>6.3 Testing en Producción</h4>
+          <ul>
+            <li>Monitoring continuo (uptime, performance, errors)</li>
+            <li>Synthetic monitoring</li>
+            <li>Chaos engineering (fallas controladas)</li>
+          </ul>
+
+          <h4>6.4 Checklist Pre-Black Friday</h4>
+          <p><em>Checklist resumida y lista para imprimir:</em></p>
+          <ul class="checklist">
+            <li><input type="checkbox" disabled> 8 semanas antes: análisis de tráfico, capacity planning, presupuesto</li>
+            <li><input type="checkbox" disabled> 6 semanas antes: load testing inicial, identificación de bottlenecks</li>
+            <li><input type="checkbox" disabled> 4 semanas antes: stress testing, optimizaciones, CDN config</li>
+            <li><input type="checkbox" disabled> 2 semanas antes: spike testing, failover testing, backups verificados</li>
+            <li><input type="checkbox" disabled> 1 semana antes: final load test, DR drill, on-call schedule</li>
+            <li><input type="checkbox" disabled> Día del evento: monitoring en tiempo real, war room operativo</li>
+          </ul>
+        </div>
+
+        <!-- 7 Recomendaciones -->
+        <button class="accordion-btn" data-target="recomendaciones">7. Recomendaciones</button>
+        <div id="recomendaciones" class="panel">
+          <h4>7.1 Para equipos de desarrollo</h4>
+          <ul>
+            <li>Fomentar cultura de testing (TDD/BDD).</li>
+            <li>Automatizar pipelines de pruebas.</li>
+            <li>Code review obligatorio y análisis estático.</li>
+          </ul>
+
+          <h4>7.2 Para equipos de operaciones</h4>
+          <ul>
+            <li>Multi-region deployment y auto-scaling.</li>
+            <li>Full stack monitoring y alerting inteligente.</li>
+            <li>Runbooks y procedures de escalado.</li>
+          </ul>
+
+          <h4>7.3 Para management</h4>
+          <ul>
+            <li>Invertir en infraestructura, reducir technical debt.</li>
+            <li>Gestionar riesgos, insurance y comunicación de crisis.</li>
+            <li>Apoyar a los equipos: training y compensación on-call.</li>
+          </ul>
+        </div>
+
+        <!-- 8 Conclusiones -->
+        <button class="accordion-btn" data-target="conclusiones">8. Conclusiones</button>
+        <div id="conclusiones" class="panel">
+          <h4>Hallazgos principales</h4>
+          <ol>
+            <li>El 80% de los fallos documentados pudieron prevenirse con testing adecuado.</li>
+            <li>El costo promedio del downtime justifica la inversión en testing.</li>
+            <li>Eventos predecibles como Black Friday requieren preparación obligatoria.</li>
+            <li>Technical debt y sistemas legacy son factores recurrentes.</li>
+            <li>Muchos errores humanos indican procesos pobres, no solo fallas individuales.</li>
+          </ol>
+
+          <h4>Impacto del testing adecuado</h4>
+          <p>Un programa comprensivo puede reducir fallos críticos en 80%, disminuir downtime en 70% y ahorrar millones en pérdidas evitables.</p>
+
+          <h4>Call to action</h4>
+          <ol>
+            <li>Auditoría de prácticas de testing</li>
+            <li>Inversión en infraestructura moderna</li>
+            <li>Implementar testing automatizado</li>
+            <li>Preparación específica para eventos de alta demanda</li>
+            <li>Fomentar cultura de reliability engineering</li>
+          </ol>
+        </div>
+
+        <!-- 9 Limitaciones -->
+        <button class="accordion-btn" data-target="limitaciones">9. Limitaciones del Estudio</button>
+        <div id="limitaciones" class="panel">
+          <ul>
+            <li>Información pública incompleta en varios casos.</li>
+            <li>Algunas cifras son estimadas por analistas.</li>
+            <li>Selección limitada a casos públicos y documentados.</li>
+            <li>Tecnología evoluciona rápidamente (temporalidad).</li>
+          </ul>
+        </div>
+
+        <!-- 10 Trabajo futuro -->
+        <button class="accordion-btn" data-target="trabajo-futuro">10. Trabajo Futuro</button>
+        <div id="trabajo-futuro" class="panel">
+          <ol>
+            <li>Análisis de más casos en distintas industrias.</li>
+            <li>Desarrollo de herramientas de testing específicas.</li>
+            <li>Framework de certificación en e-commerce reliability.</li>
+            <li>Benchmarking de prácticas por industria.</li>
+          </ol>
+        </div>
+
+       
+      </div>
+
+      <a href="index.html" class="volver">← Volver al inicio</a>
+    </main>
+
+    <footer>
+      <p>Documento preparado por Equipo 6 — E-commerce & Retail · Última actualización: 25 Oct 2025 · Versión 1.0</p>
+    </footer>
+  </div>
+
+  <script>
+    // Acordeón: cerrado por defecto. Animación suave al abrir/cerrar.
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      const panel = document.getElementById(btn.getAttribute('data-target')) || btn.nextElementSibling;
+      // Ensure panels start collapsed
+      if (panel) panel.style.maxHeight = null;
+      btn.addEventListener('click', () => {
+        if (!panel) return;
+        const isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+        // Close any other open panels (single-open behaviour)
+        document.querySelectorAll('.panel').forEach(p => {
+          if (p !== panel) p.style.maxHeight = null;
+        });
+        if (isOpen) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+        window.scrollTo({ top: btn.getBoundingClientRect().top + window.scrollY - 60, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>

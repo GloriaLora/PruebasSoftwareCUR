@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso 1 — Error de precios en aerolíneas</title>
+  <link rel="stylesheet" href="css/caso1.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <h1>Errores Tecnológicos</h1>
+          <p class="lead">Casos reales de fallas en plataformas digitales</p>
+        </div>
+      </div>
+      
+    </header>
+
+    <section class="caso">
+      <div class="resumen">
+        <h1>Caso 1 — Error de precios en aerolíneas</h1>
+        <ul>
+          <li><strong>Empresa:</strong> United Airlines</li>
+          <li><strong>Fecha:</strong> 12 de septiembre de 2013</li>
+          <li><strong>Tipo de fallo:</strong> Pricing Error / System Glitch</li>
+          <li><strong>Severidad:</strong> Alta ⚠️</li>
+        </ul>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn">Resumen Ejecutivo</button>
+        <div class="panel">
+          <p>El 12 de septiembre de 2013, United Airlines presentó un error crítico en su sistema de tarifas, lo que permitió publicar y vender tiquetes con precios entre $0 y $10 USD durante casi dos horas. Este incidente afectó múltiples rutas internacionales, generando pérdidas significativas y problemas de reputación.</p>
+        </div>
+
+        <button class="accordion-btn">Causa principal</button>
+        <div class="panel">
+          <p>El error se originó debido a una falla en el módulo de validación de precios del sistema interno de reservas. La actualización de software que debía corregir una tasa impositiva omitió una regla crítica en la fórmula de cálculo, resultando en la eliminación temporal de los impuestos y tarifas base.</p>
+          <blockquote>“El problema fue causado por una actualización que se implementó sin las pruebas automatizadas completas en el entorno de staging.” — Informe técnico interno</blockquote>
+        </div>
+
+        <button class="accordion-btn">Impacto</button>
+        <div class="panel">
+          <ul>
+            <li>Más de 5,000 boletos vendidos a precios erróneos.</li>
+            <li>Pérdidas estimadas en más de 800,000 USD.</li>
+            <li>Afectación de la imagen corporativa y reclamos públicos en redes sociales.</li>
+            <li>Tiempo de recuperación del sistema: 2 horas.</li>
+          </ul>
+          <div class="timeline">
+            <p><strong>Timeline del incidente:</strong></p>
+            <ul>
+              <li>⏰ 08:20 — Se lanza la actualización de tarifas.</li>
+              <li>⏰ 08:45 — Primeros reportes de usuarios sobre boletos a $0.</li>
+              <li>⏰ 09:30 — Departamento de IT detecta anomalías.</li>
+              <li>⏰ 10:10 — Se desactiva el módulo de ventas temporalmente.</li>
+              <li>⏰ 10:35 — Se implementa rollback de la versión anterior.</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion-btn">Análisis técnico</button>
+        <div class="panel">
+          <p>La auditoría del código reveló que el error provenía de una variable mal declarada en el cálculo de las tasas base:</p>
+          <pre><code>// Fragmento simplificado del módulo de cálculo
+function calcularTarifa(base, impuestos) {
+  let total = base + impuestos;
+  if (!impuestos) total = base; // línea incorrecta: ignora tasas base
+  return total;
+}
+          </code></pre>
+          <p>El sistema debía realizar una validación cruzada con la API de tarifas, pero el endpoint de validación se encontraba fuera de servicio por mantenimiento.</p>
+        </div>
+
+        <button class="accordion-btn">Lecciones aprendidas</button>
+        <div class="panel">
+          <ul>
+            <li>Implementar validaciones automáticas en todos los módulos críticos.</li>
+            <li>Evitar despliegues sin pruebas de integración completas.</li>
+            <li>Monitorear en tiempo real las variaciones de precios publicados.</li>
+            <li>Establecer un plan de rollback inmediato ante anomalías detectadas.</li>
+          </ul>
+        </div>
+
+        <button class="accordion-btn">Conclusiones</button>
+        <div class="panel">
+          <p>El incidente evidenció la falta de controles en el flujo de despliegue y pruebas de la aerolínea. Si bien el daño financiero fue absorbido internamente, el daño reputacional reforzó la importancia de la automatización de QA y la supervisión continua.</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="volver">← Volver al inicio</a>
+    </section>
+
+    <footer>
+      Proyecto académico · Equipo 6 — E-commerce y Tecnología · Última actualización: 31 Oct 2025
+    </footer>
+  </div>
+
+  <script>
+    // Script de acordeón con animación suave
+    const buttons = document.querySelectorAll(".accordion-btn");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const panel = this.nextElementSibling;
+        this.classList.toggle("active");
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

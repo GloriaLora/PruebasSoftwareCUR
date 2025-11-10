@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso 4 — Errores en sistemas de pago</title>
+  <link rel="stylesheet" href="css/caso1.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <h1>Errores Tecnológicos</h1>
+          <p class="lead">Casos reales de fallas en plataformas digitales</p>
+        </div>
+      </div>
+     
+    </header>
+
+    <section class="caso">
+      <div class="resumen">
+        <h1>Caso 4 — Errores en sistemas de pago</h1>
+        <ul>
+          <li><strong>Empresa:</strong> PayPal / Stripe / MercadoPago</li>
+          <li><strong>Fecha:</strong> 15 de febrero de 2024</li>
+          <li><strong>Tipo de fallo:</strong> Cobros duplicados / Fallo en API</li>
+          <li><strong>Severidad:</strong> Crítica 🚨</li>
+        </ul>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn">Resumen Ejecutivo</button>
+        <div class="panel">
+          <p>Durante las primeras horas del 15 de febrero de 2024, múltiples plataformas de pago digital reportaron errores de procesamiento que causaron cobros duplicados a miles de usuarios. El problema afectó transacciones en PayPal, Stripe y MercadoPago, provocando reclamos masivos.</p>
+        </div>
+
+        <button class="accordion-btn">Causa principal</button>
+        <div class="panel">
+          <p>La causa raíz fue una actualización simultánea de los módulos de conciliación de pagos en varios proveedores que usaban una API compartida. Un error en la gestión de idempotencia permitió que las solicitudes de pago se procesaran más de una vez cuando los servidores respondían con lentitud.</p>
+          <blockquote>“Las solicitudes duplicadas fueron tratadas como nuevas transacciones en lugar de ignorarse, violando la regla de idempotencia del sistema.” — Reporte técnico de Stripe</blockquote>
+        </div>
+
+        <button class="accordion-btn">Impacto</button>
+        <div class="panel">
+          <ul>
+            <li>Miles de usuarios recibieron cobros duplicados o triples.</li>
+            <li>Pérdidas económicas y devoluciones automáticas estimadas en 2.5 millones USD.</li>
+            <li>Caída de confianza en los sistemas de pago afectados.</li>
+            <li>Retrasos de hasta 48 horas en conciliaciones bancarias.</li>
+          </ul>
+
+          <div class="timeline">
+            <p><strong>Timeline del incidente:</strong></p>
+            <ul>
+              <li>💳 01:00 — Inicio del despliegue de actualización en servidores de pago.</li>
+              <li>💥 02:15 — Primeros reportes de cobros duplicados en redes sociales.</li>
+              <li>🧩 03:40 — Equipos técnicos detectan inconsistencia en respuestas HTTP.</li>
+              <li>🕓 04:20 — Se detiene la propagación de la versión defectuosa.</li>
+              <li>🕗 07:00 — Implementación de rollback y reversión de pagos duplicados.</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion-btn">Análisis técnico</button>
+        <div class="panel">
+          <p>El análisis técnico demostró que el problema se debió a la ausencia de un control robusto de idempotencia en la API de pagos. Cada solicitud debía incluir un identificador único (<code>idempotency_key</code>), pero al no validarse correctamente, las transacciones se ejecutaron múltiples veces.</p>
+
+          <pre><code># Ejemplo de validación incorrecta en la API
+if not payment_exists(request.idempotency_key):
+    process_payment(request)
+else:
+    process_payment(request)  # Error: no se bloquea la transacción duplicada
+          </code></pre>
+
+          <p>Además, los logs del sistema mostraron que las respuestas HTTP 500 (error interno del servidor) fueron tratadas como fallos temporales, lo que provocó reintentos automáticos sin verificación de duplicidad.</p>
+        </div>
+
+        <button class="accordion-btn">Lecciones aprendidas</button>
+        <div class="panel">
+          <ul>
+            <li>Implementar validaciones estrictas de idempotencia en todas las APIs de pago.</li>
+            <li>Diseñar sistemas de reintento que validen el estado de las transacciones previas.</li>
+            <li>Monitorear métricas de error en tiempo real para detectar anomalías.</li>
+            <li>Coordinar despliegues globales de manera escalonada para evitar conflictos simultáneos.</li>
+          </ul>
+        </div>
+
+        <button class="accordion-btn">Conclusiones</button>
+        <div class="panel">
+          <p>El caso evidencia cómo un pequeño error en la gestión de solicitudes puede desencadenar pérdidas financieras y daños reputacionales a nivel global. Las empresas de pago deben priorizar la integridad transaccional y adoptar arquitecturas resilientes que eviten repeticiones en los procesos críticos.</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="volver">← Volver al inicio</a>
+    </section>
+
+    <footer>
+      Proyecto académico · Equipo 6 — E-commerce y Tecnología · Última actualización: 31 Oct 2025
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".accordion-btn");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const panel = this.nextElementSibling;
+        this.classList.toggle("active");
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

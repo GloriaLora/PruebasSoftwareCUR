@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso 3 — Caídas durante Black Friday</title>
+  <link rel="stylesheet" href="css/caso1.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <h1>Errores Tecnológicos</h1>
+          <p class="lead">Casos reales de fallas en plataformas digitales</p>
+        </div>
+      </div>
+      
+       
+       
+    </header>
+
+    <section class="caso">
+      <div class="resumen">
+        <h1>Caso 3 — Caídas durante Black Friday</h1>
+        <ul>
+          <li><strong>Empresas afectadas:</strong> Amazon, Walmart, Best Buy, Target</li>
+          <li><strong>Fecha:</strong> 24 de noviembre de 2023</li>
+          <li><strong>Tipo de fallo:</strong> Sobrecarga de servidores / Alta concurrencia</li>
+          <li><strong>Severidad:</strong> Alta ⚠️</li>
+        </ul>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn">Resumen Ejecutivo</button>
+        <div class="panel">
+          <p>Durante el Black Friday de 2023, varias plataformas de e-commerce presentaron caídas y lentitud extrema debido a una demanda superior a la esperada. Millones de usuarios simultáneos provocaron la saturación de servidores y la degradación de servicios en línea.</p>
+          <p>Empresas como Amazon, Walmart y Best Buy reportaron interrupciones temporales en sus sistemas de pago y carritos de compra.</p>
+        </div>
+
+        <button class="accordion-btn">Causa principal</button>
+        <div class="panel">
+          <p>El aumento repentino de tráfico superó los límites de capacidad de la infraestructura de servidores. Aunque muchas empresas ya operaban en entornos de nube, la configuración de escalabilidad automática no fue suficiente para manejar los picos máximos de carga.</p>
+          <blockquote>“El error no fue de tecnología, sino de previsión: los picos de tráfico duplicaron las estimaciones más altas.” — Informe AWS Retail 2023</blockquote>
+        </div>
+
+        <button class="accordion-btn">Impacto</button>
+        <div class="panel">
+          <ul>
+            <li>Pérdidas de ventas estimadas en más de 1.2 mil millones de dólares.</li>
+            <li>Más de 45 minutos promedio de inactividad en las principales tiendas online.</li>
+            <li>Colapsos en sistemas de pago, listas de deseos y procesamiento de órdenes.</li>
+            <li>Clientes frustrados y críticas masivas en redes sociales.</li>
+          </ul>
+
+          <div class="timeline">
+            <p><strong>Timeline del incidente:</strong></p>
+            <ul>
+              <li>🕛 00:00 — Inicia Black Friday con picos iniciales de tráfico.</li>
+              <li>🕐 01:15 — Amazon y Walmart reportan lentitud en procesos de pago.</li>
+              <li>🕒 03:00 — Caídas parciales en servidores de AWS US-East.</li>
+              <li>🕔 05:30 — Restablecimiento gradual de servicios.</li>
+              <li>🕗 08:00 — Servicios 100% operativos con tráfico estabilizado.</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion-btn">Análisis técnico</button>
+        <div class="panel">
+          <p>Los reportes técnicos indicaron que la infraestructura de microservicios de algunas plataformas presentó cuellos de botella en los servicios de autenticación y gestión de inventarios. La falta de balanceadores de carga redundantes y estrategias de *rate limiting* contribuyó al colapso.</p>
+          <pre><code># Ejemplo de configuración deficiente en AWS Auto Scaling
+AutoScalingGroup:
+  MaxSize: 200
+  MinSize: 50
+  DesiredCapacity: 60
+# El límite máximo no permitió escalar más allá del 300% de la demanda inicial.
+          </code></pre>
+          <p>Además, las conexiones de base de datos alcanzaron el número máximo de sesiones, generando errores 504 (Gateway Timeout).</p>
+        </div>
+
+        <button class="accordion-btn">Lecciones aprendidas</button>
+        <div class="panel">
+          <ul>
+            <li>Implementar sistemas de monitoreo predictivo para prever picos de tráfico.</li>
+            <li>Revisar políticas de autoescalado en infraestructura en la nube.</li>
+            <li>Usar balanceadores de carga distribuidos en múltiples regiones.</li>
+            <li>Probar el sistema con herramientas de carga realista (stress testing).</li>
+          </ul>
+        </div>
+
+        <button class="accordion-btn">Conclusiones</button>
+        <div class="panel">
+          <p>Las caídas durante el Black Friday demostraron que incluso las plataformas más grandes pueden fallar ante picos de tráfico imprevistos. Este caso subraya la necesidad de diseñar arquitecturas resilientes, basadas en redundancia, automatización y monitoreo constante.</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="volver">← Volver al inicio</a>
+    </section>
+
+    <footer>
+      Proyecto académico · Equipo 6 — E-commerce y Tecnología · Última actualización: 31 Oct 2025
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".accordion-btn");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const panel = this.nextElementSibling;
+        this.classList.toggle("active");
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

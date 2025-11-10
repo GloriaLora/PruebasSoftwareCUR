@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caso 2 — Colapso informático en British Airways</title>
+  <link rel="stylesheet" href="css/caso1.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">ET</div>
+        <div>
+          <h1>Errores Tecnológicos</h1>
+          <p class="lead">Casos reales de fallas en plataformas digitales</p>
+        </div>
+      </div>
+      <nav>
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#casos">Casos</a>
+        <a href="../index.html#investigacion">Investigación</a>
+        <a href="../index.html#recursos">Recursos</a>
+      </nav>
+    </header>
+
+    <section class="caso">
+      <div class="resumen">
+        <h1>Caso 2 — Colapso informático en British Airways</h1>
+        <ul>
+          <li><strong>Empresa:</strong> British Airways</li>
+          <li><strong>Fecha:</strong> 27 de mayo de 2017</li>
+          <li><strong>Tipo de fallo:</strong> Falla eléctrica / Data Center Crash</li>
+          <li><strong>Severidad:</strong> Crítica 🚨</li>
+        </ul>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-btn">Resumen Ejecutivo</button>
+        <div class="panel">
+          <p>El 27 de mayo de 2017, British Airways sufrió un colapso total de su sistema informático, lo que provocó la cancelación de más de 400 vuelos y afectó a cerca de 75.000 pasajeros en todo el mundo. El incidente paralizó operaciones durante tres días y generó pérdidas millonarias.</p>
+        </div>
+
+        <button class="accordion-btn">Causa principal</button>
+        <div class="panel">
+          <p>La causa raíz fue una interrupción eléctrica en el centro de datos principal de Heathrow, seguida de un reinicio no controlado de los servidores críticos. Este reinicio afectó la integridad de los sistemas de reserva, equipaje y facturación, generando corrupción en bases de datos y pérdida temporal de información.</p>
+          <blockquote>“El problema no fue la falta de energía, sino la falta de un procedimiento adecuado para el restablecimiento del sistema.” — Informe interno BA</blockquote>
+        </div>
+
+        <button class="accordion-btn">Impacto</button>
+        <div class="panel">
+          <ul>
+            <li>Más de 75.000 pasajeros afectados.</li>
+            <li>Cancelación de 400 vuelos y retrasos prolongados en otros 170.</li>
+            <li>Pérdidas superiores a 100 millones de libras.</li>
+            <li>Daño reputacional global y críticas mediáticas masivas.</li>
+          </ul>
+
+          <div class="timeline">
+            <p><strong>Timeline del incidente:</strong></p>
+            <ul>
+              <li>🔌 09:30 — Corte de energía en el Data Center principal.</li>
+              <li>🔁 09:45 — Reinicio manual de los sistemas críticos.</li>
+              <li>💥 10:10 — Corrupción detectada en la base de datos de reservas.</li>
+              <li>🛫 12:00 — Suspensión total de vuelos en Heathrow y Gatwick.</li>
+              <li>🕓 16:30 — Comunicación oficial de la aerolínea sobre el fallo.</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion-btn">Análisis técnico</button>
+        <div class="panel">
+          <p>La investigación posterior determinó que el problema se agravó por la ausencia de redundancia activa en el Data Center y la falta de sincronización con el centro de respaldo. El sistema dependía de una arquitectura monolítica obsoleta y sin virtualización adecuada.</p>
+          <pre><code># Ejemplo de diagrama lógico simplificado
+[Main Server] ---x--- [Backup Server]
+    |                     |
+  Sistema A            Sistema B
+  (Reservas)           (Equipaje)
+          </code></pre>
+          <p>Además, se evidenció la inexistencia de un plan de recuperación ante desastres (DRP) completamente probado.</p>
+        </div>
+
+        <button class="accordion-btn">Lecciones aprendidas</button>
+        <div class="panel">
+          <ul>
+            <li>Implementar redundancia activa-activa en sistemas críticos.</li>
+            <li>Establecer protocolos automáticos de recuperación ante fallos.</li>
+            <li>Realizar simulacros de desastre al menos dos veces por año.</li>
+            <li>Actualizar infraestructura a entornos virtualizados o en la nube.</li>
+          </ul>
+        </div>
+
+        <button class="accordion-btn">Conclusiones</button>
+        <div class="panel">
+          <p>El caso de British Airways representa uno de los fallos más costosos de la aviación moderna. El incidente subraya la importancia de contar con planes sólidos de continuidad del negocio y arquitecturas TI resilientes, especialmente en organizaciones con operaciones globales.</p>
+        </div>
+      </div>
+
+      <a href="index.html" class="volver">← Volver al inicio</a>
+    </section>
+
+    <footer>
+      Proyecto académico · Equipo 6 — E-commerce y Tecnología · Última actualización: 31 Oct 2025
+    </footer>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll(".accordion-btn");
+    buttons.forEach(btn => {
+      btn.addEventListener("click", function () {
+        const panel = this.nextElementSibling;
+        this.classList.toggle("active");
+        if (panel.style.maxHeight) {
+          panel.style.maxHeight = null;
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+:root {
+  --bg: #fff5fa;
+  --card: #ffffff;
+  --muted: #8a7799;
+  --accent: #e89acc;
+  --accent2: #b594f6;
+  --text: #4a3750;
+}
+
+body {
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  margin: 0;
+  background: linear-gradient(160deg, #ffe9f3 0%, #f3e4ff 100%);
+  color: var(--text);
+}
+
+.container { max-width: 1000px; margin: 40px auto; padding: 20px; }
+
+header {
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;
+}
+.brand { display: flex; align-items: center; gap: 12px; }
+.logo {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+  display: flex; justify-content: center; align-items: center;
+  color: white; font-weight: 700; font-size: 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+nav a {
+  color: var(--accent2);
+  text-decoration: none;
+  margin-left: 12px;
+  font-weight: 600;
+}
+nav a:hover { color: var(--accent); }
+
+.hero {
+  margin-top: 25px;
+  background: rgba(255,255,255,0.8);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+h2 { color: #5d4170; margin-top: 0; }
+p { color: var(--muted); }
+
+.accordion {
+  margin-top: 20px;
+}
+
+.accordion-btn {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: white;
+  cursor: pointer;
+  padding: 14px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.accordion-btn:hover {
+  background: linear-gradient(135deg, var(--accent2), var(--accent));
+}
+
+.panel {
+  background: #ffffff;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  padding: 0 14px;
+}
+
+.panel p {
+  margin: 10px 0;
+  color: var(--muted);
+}
+
+.ver-mas {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  background: var(--accent2);
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.ver-mas:hover { background: var(--accent); }
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+
