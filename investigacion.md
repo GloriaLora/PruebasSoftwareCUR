@@ -133,180 +133,182 @@ Ver que una simple actualización causó 271 heridos me hizo valorar la importan
 Ahora comprendo que el desarrollo responsable significa anticipar riesgos. Cada sistema debe ser seguro, probado y humano.
 
 ---
-✅ A. Patrones Universales que se Repiten en TODAS las Industrias
-🟦 Patrón 1 – Reutilizar código o configuraciones sin validar límites
+# ⭐ SÍNTESIS CRÍTICA — Equipo 4 (Sistemas Críticos: Transporte & Aeroespacial)
 
-Descripción:
-Código heredado o configuraciones copiadas se usan en contextos nuevos sin evaluar si los valores, sensores o condiciones siguen siendo válidos.
+## 🔍 Introducción
+Tras analizar los casos de *todas* las industrias —finanzas, e-commerce, salud, transporte, aeroespacial, autenticación y UX— encontramos que, aunque los contextos son muy diferentes, **los patrones de fallo son exactamente los mismos**.
 
-Por qué es universal:
-Ocurre en cualquier sistema donde hay presión por ahorrar tiempo: bancos, e-commerce, aviación, salud, videojuegos.
+Los desastres surgen por:
+- Falta de pruebas
+- Suposiciones incorrectas
+- Dependencia en un solo componente
+- Fallos de comunicación
+- Cambios sin control
 
-Ejemplos (3 equipos):
+---
 
-Equipo 4 (nosotros): Ariane 5 → overflow por código heredado del Ariane 4.
+# ✅ A. Patrones Universales que se Repiten en TODAS las Industrias
 
-Equipo 3 (Salud): Therac-25 → código viejo no probado, causando dosis letales.
+A continuación se presentan **5 patrones universales**, con **explicación** y **ejemplos de 3 equipos diferentes**.
 
-Equipo 5 (UX & Reputación): Cyberpunk 2077 → código antiguo usado en nuevas consolas sin optimizar.
+---
 
-🟦 Patrón 2 – Dependencia de un solo punto (sensor, módulo, API, usuario)
+## 🟦 Patrón 1 — Reutilización de código o configuraciones sin validar límites
 
-Descripción:
-El sistema confía en un solo elemento crítico que, al fallar, provoca colapso completo.
+**Descripción:**  
+Código o parámetros heredados se usan en contextos nuevos sin verificar si siguen siendo válidos.
 
-Por qué es universal:
-Se repite donde no hay redundancia: sistemas financieros, transportes, autenticación, salud.
+**Por qué es universal:**  
+Sucede cuando equipos buscan ahorrar tiempo o evitar reescritura.
 
-Ejemplos:
+**Ejemplos:**
+- **Equipo 4:** Ariane 5 – Overflow por código heredado del Ariane 4.  
+- **Equipo 3:** Therac-25 – Reutilización de módulos no probados → muertes.  
+- **Equipo 5:** Cyberpunk 2077 – Código viejo no adaptado a nuevas consolas.
 
-Equipo 4: Boeing 737 MAX → MCAS dependía de un sensor AoA.
+---
 
-Equipo 1 (Financiero): Knight Capital → una sola librería defectuosa tomó control del trading.
+## 🟦 Patrón 2 — Dependencia de un único punto crítico (sensor, API, módulo)
 
-Equipo 7 (Autenticación): Casos de bypass que dependen de un solo endpoint vulnerable.
+**Descripción:**  
+Si un componente falla, todo falla.
 
-🟦 Patrón 3 – Actualizaciones en producción sin pruebas ni rollback
+**Por qué es universal:**  
+Muchos sistemas priorizan simplicidad sobre redundancia.
 
-Descripción:
-Cambios lanzados directamente en sistemas en operación, sin staging, sin canary, sin rollback seguro.
+**Ejemplos:**
+- **Equipo 4:** Boeing 737 MAX – MCAS dependía de un solo sensor AoA.  
+- **Equipo 1:** Knight Capital – Una librería obsoleta destruyó 440M USD.  
+- **Equipo 7:** Sistemas de Login – Vulnerabilidad en un solo endpoint.
 
-Por qué es universal:
-Toda empresa quiere rapidez sobre seguridad.
+---
 
-Ejemplos:
+## 🟦 Patrón 3 — Actualizaciones en producción sin pruebas ni rollback
 
-Equipo 4: Metro de Shanghái → actualización CBTC en hora pico → colisión.
+**Descripción:**  
+Cambios aplicados con el sistema en funcionamiento → caos inmediato.
 
-Equipo 6 (E-commerce): Black Friday outages → cambios sin pruebas de carga.
+**Por qué es universal:**  
+La presión por lanzar rápido genera riesgo extremo.
 
-Equipo 2 (Seguridad): Equifax → parche crítico no aplicado correctamente.
+**Ejemplos:**
+- **Equipo 4:** Metro de Shanghái – Update CBTC en hora pico → colisión.  
+- **Equipo 6:** Black Friday – Actualizaciones de e-commerce sin test.  
+- **Equipo 2:** Equifax – Parche crítico no aplicado correctamente.
 
-🟦 Patrón 4 – Falta de pruebas de escenarios extremos o no ideales
+---
 
-Descripción:
-El sistema solo se prueba en condiciones “normales”, pero falla bajo estrés, valores fuera de rango, saturación o inputs raros.
+## 🟦 Patrón 4 — Falta de pruebas de escenarios extremos (edge cases)
 
-Por qué es universal:
-Probamos lo que esperamos… pero los desastres provienen de lo que no esperamos.
+**Descripción:**  
+Los sistemas se prueban en condiciones “normales”, pero fallan en límites.
 
-Ejemplos:
+**Por qué es universal:**  
+Las empresas subestiman escenarios improbables.
 
-Equipo 4: Ariane 5 → nunca probaron velocidad horizontal real del nuevo cohete.
+**Ejemplos:**
+- **Equipo 4:** Ariane 5 – No probaron velocidad horizontal real.  
+- **Equipo 6:** Amazon Prime Day – No probaron carga real de usuarios.  
+- **Equipo 1:** Y2K – Producido por falta de edge-case tests.
 
-Equipo 1 (Financiero): Y2K en bancos → problema previsto, pero evitado porque sí se hicieron edge-case tests.
+---
 
-Equipo 6: Amazon Prime Day → tráfico extremo no probado → caída total.
+## 🟦 Patrón 5 — Comunicación deficiente humano-software (UX crítica)
 
-🟦 Patrón 5 – Comunicación deficiente entre humanos y software (UX crítica)
+**Descripción:**  
+El usuario no entiende qué pasa, o el sistema oculta información importante.
 
-Descripción:
-El software no informa el error claramente o no permite que el usuario recupere control.
+**Por qué es universal:**  
+Casi ningún sistema piensa primero en la interacción humano-máquina.
 
-Por qué es universal:
-La interacción humano-máquina falla en todas las industrias.
+**Ejemplos:**
+- **Equipo 4:** Boeing 737 MAX – Pilotos no informados de MCAS.  
+- **Equipo 3:** Therac-25 – Mensajes de error ambiguos → muertes.  
+- **Equipo 5:** Snapchat – Rediseño sin explicación → pérdida de usuarios.
 
-Ejemplos:
+---
 
-Equipo 4: Boeing 737 MAX → MCAS no informado a pilotos + warning confuso.
+# ⭐ B. ¿Qué hace que un desastre sea “catastrófico” y no “manejable”?
 
-Equipo 3: Therac-25 → mensajes de error ambiguos llevaron a muertes.
+## 🟥 1. Nivel de automatización
+- **Alta automatización = alto riesgo.**  
+Ejemplo:  
+- MCAS controla el avión → fatal.  
+- Amazon Prime Day cae → vergonzoso, pero no mortal.
 
-Equipo 5: Snapchat redesign → pérdida masiva de usuarios por mala comunicación del cambio.
+---
 
-⭐ B.¿Qué hace que un desastre sea “catastrófico” vs “manejable”?
-🟥 1. Nivel de automatización
+## 🟥 2. Tiempo disponible para reaccionar
+- Críticos: milisegundos (cohetes, aeronaves).  
+- No críticos: minutos u horas (sitios web).
 
-Cuanta más autonomía → más catastrófico.
-Ejemplo:
+Ejemplo:  
+- Ariane 5 explota en 37 segundos.  
+- Knight Capital tardó 45 min en detectar el error.
 
-MCAS (737 MAX) toma control sin piloto → 346 muertos.
+---
 
-Amazon Prime Day solo colapsa la web → vergonzoso, pero no fatal.
+## 🟥 3. Consecuencia directa en vidas humanas
+- Salud, aviación y transporte → vidas en riesgo.  
+- E-commerce → dinero perdido.
 
-🟥 2. Tiempo de reacción disponible
+---
 
-Sistemas críticos → milisegundos
+## 🟥 4. Número de dependencias afectadas
+- Entre más global, más catastrófico.
 
-E-commerce → minutos
+Ejemplo:  
+- Boeing 737 MAX → flotas completas paralizadas globalmente.  
+- Un bug en un checkout → afecta solo una tienda.
 
-Instituciones → horas o días
+---
 
-Ejemplo:
+## 🟥 5. Visibilidad pública
+- Accidentes → titulares mundiales.  
+- Fallos de app → memes.
 
-Ariane 5 → 37 segundos antes de explotar
+---
 
-Knight Capital → 45 minutos de caos financiero
+# ⭐ C. Tabla — Tipos de Prueba y Desastres que Habrían Prevenido
 
-Black Friday → horas de downtime sin víctimas
+| Tipo de Prueba | Desastres Prevenidos | Aplicación a Nuestro Proyecto |
+|----------------|-----------------------|-------------------------------|
+| **Pruebas de carga** | Amazon Prime Day, SimCity, Iowa App | Simular telemetría masiva en tiempo real |
+| **Pruebas de integración** | HealthCare.gov, Target Canada | Validar sincronización tren-control CBTC |
+| **Pruebas de seguridad** | WannaCry, Twitter Hack | Validar autenticidad de sensores y módulos |
+| **Pruebas de edge cases** | Ariane 5, Therac-25, Mars Orbiter | Probar valores extremos en navegación aeroespacial |
+| **Pruebas de regresión** | Knight Capital, Boeing 737 MAX | Garantizar que updates no rompan lógica previa |
+| **Pruebas de usabilidad** | Therac-25, UK Post Office | Mejorar feedback piloto-máquina y alertas |
+| **Code review** | Toyota, Volkswagen | Revisar código crítico con estándar DO-178C |
+| **Pruebas multiplataforma** | Cyberpunk 2077 | Validación cruzada en hardware aeronáutico |
 
-🟥 3. Consecuencia directa en vidas humanas
+---
 
-Fallo médico, aeronáutico o ferroviario → vidas en riesgo
+# ⭐ D. Caso Más Aterrador de Otro Equipo (para completar por miembro)
 
-Fallo en un e-commerce → pérdidas financieras
+### 👤 Miembro 1: (Nombre)  
+**Caso elegido:** Therac-25 (Equipo 3)  
+**Por qué me aterra:** Mensajes de error ambiguos causaron muertes.  
+**Conexión con mi programación:** Nunca confiar en que “el usuario sabrá qué hacer”.
 
-Ejemplo:
+---
 
-Therac-25 → muertes por radiación
+### 👤 Miembro 2: (Nombre)  
+**Caso elegido:** Knight Capital (Equipo 1)  
+**Por qué me aterra:** Una sola actualización mal hecha quebró una empresa.  
+**Conexión con mi programación:** Implementar siempre rollback seguro.
 
-Metro Shanghái → 271 heridos
+---
 
-Cyberpunk → quejas en redes
+### 👤 Miembro 3: (Nombre)  
+**Caso elegido:** Equifax (Equipo 2 – Seguridad)  
+**Por qué me aterra:** Un parche no aplicado expuso millones de datos.  
+**Conexión con mi programación:** Mantener parches y dependencias al día.
 
-🟥 4. Cantidad de dependencias afectadas
+---
 
-Entre más integrado, más daño
-Ejemplo:
+_Archivo listo para GitHub. Formato 100% Markdown._
 
-Boeing 737 MAX → aerolíneas globales dejaron 400 aviones en tierra
-
-Prime Day → afecta solo plataforma Amazon
-
-Knight Capital → una sola empresa, pero destruye 440 millones en minutos
-
-🟥 5. Visibilidad pública
-
-Un fallo aéreo → titulares mundiales
-
-Un bug en login → notas internas
-
-Ejemplo:
-
-737 MAX → prohibición mundial
-
-SimCity 2013 → reputación dañada
-
-WannaCry → titulares globales por hospitales paralizados
-
-⭐ C. Tabla: Tipos de Prueba y Desastres que Habrían Prevenido
-Tipo de Prueba	Desastres que habría prevenido	Cómo aplicarlo a nuestro proyecto (equipo 4)
-Pruebas de carga	Amazon Prime Day, SimCity 2013	Simular cargas de telemetría en sistemas críticos
-Pruebas de integración	HealthCare.gov, Target Canada	Validar sincronización tren-control en CBTC
-Pruebas de seguridad	WannaCry, Twitter Hack	Validar autenticidad y redundancia de sensores
-Pruebas de edge cases	Ariane 5, Therac-25, Mars Orbiter	Probar valores extremos en navegación aeroespacial
-Pruebas de regresión	Knight Capital, Boeing 737 MAX	Asegurar que un update no rompa lógica previa
-Pruebas de usabilidad	Therac-25, UK Post Office	Mejorar interacción piloto-máquina (alertas claras)
-Code review	Toyota, Volkswagen	Revisar rigorosamente cada módulo crítico
-Pruebas multiplataforma	Cyberpunk 2077	Verificar comportamiento en hardware diverso (simuladores, avionics)
-⭐ D. ¿Cuál es el desastre más aterrador de OTRO equipo? (Para que cada miembro llene)
-✈️ Miembro 1: (Nombre) – Caso elegido: Therac-25 (Equipo 3 – Salud)
-
-Por qué me aterra más:
-Porque demuestra que un mensaje de error mal diseñado puede matar a un paciente. Un fallo silencioso en un software médico es más letal que un bug visible.
-Conexión con mi práctica: Nunca ignorar warnings, diseñar mensajes claros.
-
-💰 Miembro 2: (Nombre) – Caso elegido: Knight Capital (Equipo 1 – Financiero)
-
-Por qué me aterra más:
-Un solo despliegue mal hecho quebró una empresa completa en 45 minutos.
-Conexión con mi práctica: Jamás desplegar sin staging o sin rollback.
-
-🔒 Miembro 3: (Nombre) – Caso elegido: Equifax 2017 (Equipo 2 – Seguridad)
-
-Por qué me aterra más:
-Porque un fallo de parcheo expuso los datos de 143 millones de personas.
-Conexión con mi práctica: Actualizaciones críticas siempre deben verificarse.
 
 ## 📚 REFERENCIAS
 
