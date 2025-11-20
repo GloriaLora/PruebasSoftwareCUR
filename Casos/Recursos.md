@@ -1,231 +1,217 @@
-📚 Recursos y Referencias – Equipo 4: Sistemas Críticos (Transporte & Aeroespacial)
+# 📚 Recursos y Referencias – Equipo 4: Sistemas Críticos (Transporte & Aeroespacial)
 
-Última actualización: 25 de Noviembre, 2025
+**Última actualización:** 25 de Noviembre, 2025
 
-📌 Tabla de Contenidos
+---
 
-Artículos y Noticias
+## 📌 Tabla de Contenidos
+- [Artículos y Noticias](#📰-artículos-y-noticias)
+- [Reportes Oficiales](#📑-reportes-oficiales)
+- [Estudios Académicos](#🎓-estudios-académicos)
+- [Estándares y Regulaciones](#🏛️-estándares-y-regulaciones)
+- [Libros Recomendados](#📘-libros-recomendados)
+- [Herramientas de Testing Crítico](#🛠️-herramientas-de-testing-crítico)
+- [Blogs Técnicos y Recursos Online](#🌐-blogs-técnicos-y-recursos-online)
+- [Videos y Documentales](#🎥-videos-y-documentales)
+- [Comunidades y Foros](#🌍-comunidades-y-foros)
+- [Datasets y Benchmarks](#📊-datasets-y-benchmarks)
+- [Recursos en Español](#🇪🇸-recursos-en-español)
+- [Preparado por](#✍️-preparado-por)
 
-Reportes Oficiales
+---
 
-Estudios Académicos
+## 📰 Artículos y Noticias
 
-Estándares y Regulaciones
+### **Ariane 5 (1996)**
 
-Libros Recomendados
-
-Herramientas de Testing Crítico
-
-Blogs Técnicos y Recursos Online
-
-Videos y Documentales
-
-Comunidades y Foros
-
-Datasets y Benchmarks
-
-Recursos en Español
-
-📰 Artículos y Noticias
-Ariane 5 (1996)
-
-ESA (European Space Agency). (1996). “Ariane 501 Failure Report.”
-URL: https://www.esa.int/Enabling_Support/Operations/Ariane_501_failure_report
-
-Tema: Análisis oficial del fallo del cohete.
+**ESA (1996). “Ariane 501 Failure Report.”**  
+URL: https://www.esa.int/Enabling_Support/Operations/Ariane_501_failure_report  
+Tema: Análisis oficial del fallo del cohete.  
 Fecha: Julio 1996
 
-The New York Times (1996). “Europe’s New Rocket Destroyed After Launch Due to Computer Error.”
-URL: https://www.nytimes.com/1996/06/15
-
-Fecha: Junio 1996
+**The New York Times (1996). “Europe’s New Rocket Destroyed After Launch Due to Computer Error.”**  
+URL: https://www.nytimes.com/1996/06/15  
+Fecha: Junio 1996  
 Tema: Cobertura mediática del fallo.
 
-Boeing 737 MAX (2018–2019)
+---
 
-Reuters (2019). “How Boeing’s 737 MAX Failed.”
-URL: https://www.reuters.com/investigates/special-report/boeing-737max
+### **Boeing 737 MAX (2018–2019)**
 
+**Reuters (2019). “How Boeing’s 737 MAX Failed.”**  
+URL: https://www.reuters.com/investigates/special-report/boeing-737max  
 Fecha: 2019
-Tema: Análisis de cronología y fallas.
 
-BBC News (2019). “What Went Wrong with Boeing’s 737 MAX?”
-URL: https://www.bbc.com/news/business-47781062
-
+**BBC News (2019). “What Went Wrong with Boeing’s 737 MAX?”**  
+URL: https://www.bbc.com/news/business-47781062  
 Fecha: Abril 2019
 
-The Guardian (2019). “MCAS: The Software Behind 737 MAX Crashes.”
-URL: https://www.theguardian.com/world/boeing-737-max
-
+**The Guardian (2019). “MCAS: The Software Behind 737 MAX Crashes.”**  
+URL: https://www.theguardian.com/world/boeing-737-max  
 Fecha: Marzo 2019
 
-Metro de Shanghái (2011)
+---
 
-Reuters (2011). “Shanghai Metro Crash Injures 271 People After Signal Failure.”
-URL: https://www.reuters.com/article/us-china-shanghai-metro-idUSTRE78Q2BU
+### **Metro de Shanghái (2011)**
 
-Fecha: Septiembre 2011
+**Reuters (2011). “Shanghai Metro Crash Injures 271 People After Signal Failure.”**  
+URL: https://www.reuters.com/article/us-china-shanghai-metro-idUSTRE78Q2BU  
+Fecha: Septiembre 2011  
 Tema: Colisión causada por fallo del CBTC.
 
-The Guardian (2011). “Firemen Rescue Passengers After Shanghai Subway Crash.”
-URL: https://www.theguardian.com/world/2011/sep/27/shanghai-subway-crash
-
+**The Guardian (2011). “Firemen Rescue Passengers After Shanghai Subway Crash.”**  
+URL: https://www.theguardian.com/world/2011/sep/27/shanghai-subway-crash  
 Fecha: Septiembre 2011
 
-📑 Reportes Oficiales
-Ariane 5
+---
 
-ESA Inquiry Board Report (1996).
-Documento técnico definitivo sobre la causa del overflow.
+## 📑 Reportes Oficiales
+
+### **Ariane 5**
+**ESA Inquiry Board Report (1996).**  
+Documento técnico definitivo sobre la causa del overflow.  
 URL: https://www.esa.int
 
-Boeing 737 MAX
+---
 
-FAA – Return to Service Report (2020).
-URL: https://www.faa.gov/aircraft/boeing737max
+### **Boeing 737 MAX**
 
+**FAA – Return to Service Report (2020).**  
+URL: https://www.faa.gov/aircraft/boeing737max  
 Temas: Cambios obligatorios, pruebas requeridas.
 
-Ethiopian Civil Aviation Authority – Final Report (2020).
+**Ethiopian Civil Aviation Authority – Final Report (2020).**  
 URL: https://reports.ecaainfo.gov.et
 
-Indonesia National Transportation Safety Committee – JT610 Final Report (2019).
-URL: https://knkt.go.id/
+**Indonesia NTSC – JT610 Final Report (2019).**  
+URL: https://knkt.go.id
 
-Metro de Shanghái
+---
 
-China State Council – Official Accident Report (2012).
-URL: http://www.gov.cn
+### **Metro de Shanghái**
 
-Tema: Detalles del fallo CBTC, errores en actualización y modo manual.
+**China State Council – Official Accident Report (2012).**  
+URL: http://www.gov.cn  
+Tema: Fallo CBTC, errores de actualización y modo manual.
 
-🎓 Estudios Académicos
+---
 
-Leveson, N. (2011). “Engineering a Safer World: Systems Thinking Applied to Safety.”
-Tema: Sistemas críticos, STAMP model.
+## 🎓 Estudios Académicos
 
-Knight, J. (2012). “Safety-Critical Systems: Challenges and Directions.”
-Journal: IEEE Computer
-Tema: Diseño y pruebas en sistemas críticos.
+- **Leveson, N. (2011). _Engineering a Safer World_** – STAMP Model  
+- **Knight, J. (2012). “Safety-Critical Systems: Challenges and Directions.”** – IEEE Computer  
+- **Kopetz, H. (2011). _Real-Time Systems_** – Determinismo y sistemas embebidos  
 
-Kopetz, H. (2011). “Real-Time Systems.” Springer.
-Tema: Sistemas embebidos y determinismo temporal.
+---
 
-🏛️ Estándares y Regulaciones
-Aeronáutica
+## 🏛️ Estándares y Regulaciones
 
-RTCA DO-178C (2011)
-“Software Considerations in Airborne Systems.”
-URL: https://www.rtca.org/
+### **Aeronáutica**
+**RTCA DO-178C (2011)**  
+“Software Considerations in Airborne Systems.”  
+URL: https://www.rtca.org  
+Requisito fundamental en certificación aeronáutica.
 
-Requisito para certificación de software en aeronaves.
+---
 
-Ferrocarriles
-
-IEC 62290-1 (2014)
-“Urban Guided Transport Management and Command Systems.”
-URL: https://www.iec.ch/
-
+### **Ferrocarriles**
+**IEC 62290-1 (2014)**  
+“Urban Guided Transport Management and Command Systems.”  
+URL: https://www.iec.ch  
 Norma usada en CBTC, señalización y automatización.
 
-Sistemas Críticos
+---
 
-ISO/IEC/IEEE 29119 – Software Testing
-Framework global de testing.
+### **Sistemas Críticos**
 
-IEEE Std 1012-2016 – Verification and Validation.
+- **ISO/IEC/IEEE 29119 – Software Testing**  
+- **IEEE Std 1012-2016 – Verification and Validation**
 
-📘 Libros Recomendados
-Sistemas Críticos
+---
 
-“Engineering a Safer World” – Nancy Leveson
+## 📘 Libros Recomendados
 
-“Real-Time Systems” – Hermann Kopetz
+### **Sistemas Críticos**
+- *Engineering a Safer World* – Nancy Leveson  
+- *Real-Time Systems* – Hermann Kopetz  
+- *Safety-Critical Systems Handbook* – David J. Smith  
 
-“Safety-Critical Systems Handbook” – David J. Smith
+### **Testing e Investigación**
+- *The Art of Software Testing* – Myers & Sandler  
+- *Software Testing Techniques* – Beizer  
 
-Testing / Investigación
+### **Software Aeroespacial**
+- *Avionics: Development and Certification* – C. Hilburn  
 
-“The Art of Software Testing” – Myers & Sandler
+---
 
-“Software Testing Techniques” – Beizer
+## 🛠️ Herramientas de Testing Crítico
 
-Software Aeroespacial
+### **Testing de Tiempo Real**
+- **MATLAB Simulink** – Simulación dinámica  
+- **ANSYS SCADE** – Certificación DO-178C  
+- **VectorCAST** – Testing embebido  
 
-“Avionics: Development and Certification” – C. Hilburn
+### **Seguridad y Redundancia**
+- **Hardware-in-the-Loop (HIL)**  
+- **QEMU + FlightGear** – Simulación aeronáutica  
+- **IBM Rational DOORS** – Gestión de trazabilidad  
 
-🛠️ Herramientas de Testing Crítico
-Testing de Tiempo Real
+---
 
-MATLAB Simulink – Simulación dinámica
+## 🌐 Blogs Técnicos y Recursos Online
 
-ANSYS SCADE – Certificación DO-178C
+### **Aeronáutica**
+- Boeing Engineering Blog  
+- FAA Safety Briefing Blog  
+- NASA Software Engineering Handbook  
 
-VectorCAST – Testing para software embebido
+### **Sistemas Críticos**
+- MIT System Safety Blog  
+- Carnegie Mellon SEI  
 
-Testing de Seguridad y Redundancia
+---
 
-TestBenches HIL (Hardware-in-the-Loop)
+## 🎥 Videos y Documentales
 
-QEMU + FlightGear para simulación aeronáutica
-
-IBM Rational DOORS para trazabilidad
-
-🌐 Blogs Técnicos y Recursos Online
-Aeronáutica
-
-Boeing Engineering Blog
-
-FAA Safety Briefing Blog
-
-NASA Software Engineering Handbook
-
-Sistemas críticos
-
-MIT System Safety Blog
-
-Carnegie Mellon SEI (Software Engineering Institute)
-
-🎥 Videos y Documentales
-
-“How Ariane 5 Failed” – Computerphile
+- **“How Ariane 5 Failed” – Computerphile**  
 URL: https://www.youtube.com/watch?v=kY88aJfxd9U
 
-“Boeing 737 MAX: What Went Wrong” – BBC Documentary
+- **“Boeing 737 MAX: What Went Wrong” – BBC**  
 URL: https://www.youtube.com/watch?v=49v2C7FzFZg
 
-“Shanghai Metro Crash Explained” – Railways Explained
+- **“Shanghai Metro Crash Explained” – Railways Explained**  
 URL: https://www.youtube.com
 
-🌍 Comunidades y Foros
+---
 
-Aviation StackExchange
+## 🌍 Comunidades y Foros
 
-Railway Engineering Group – Reddit /r/trains
+- Aviation StackExchange  
+- Reddit /r/trains  
+- NASA Open Data Community  
+- Reddit /r/systems_engineering  
 
-NASA Open Data Community
+---
 
-Systems Engineering Reddit /r/systems_engineering
+## 📊 Datasets y Benchmarks
 
-📊 Datasets y Benchmarks
+- NASA Accident Database  
+- Aviation Safety Network (ASN)  
+- IEEE Transportation – Rail CASM datasets  
 
-NASA Accident Database
+---
 
-Aviation Safety Network (ASN)
+## 🇪🇸 Recursos en Español
 
-Rail CASM datasets – IEEE Transportation
+- ESA España – Reportes Ariane  
+- Aviación Digital – Análisis 737 MAX  
+- El País – Cobertura accidente Metro Shanghái  
+- Ingeniería del Software Crítico – UNAM  
 
-🇪🇸 Recursos en Español
+---
 
-ESA España – Reportes Ariane
+## ✍️ Preparado por  
+**Equipo 4 – Sistemas Críticos (Transporte & Aeroespacial)**  
+**Última actualización:** 25 de Noviembre, 2025
 
-Aviación Digital – Boeing 737 MAX análisis técnico
-
-El País – Colisión Metro Shanghái
-
-Ingeniería del Software Crítico – UNAM
-
-✍️ Preparado por
-
-Equipo 4 – Sistemas Críticos (Transporte & Aeroespacial)
-Última actualización: 25 de Noviembre, 2025
