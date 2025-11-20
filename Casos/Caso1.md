@@ -184,4 +184,3 @@ Basado en tu documento:
 •	“Ariane 501 Failure Report”
 •	DO-178C Aerospace Standards
 •	Otros recursos en tu archivo Pruebas Equipo 4.docx
-
