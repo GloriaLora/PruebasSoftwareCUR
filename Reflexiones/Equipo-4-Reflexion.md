@@ -1,4 +1,4 @@
-Reflexión del Equipo 4 — Resumen colectivo
+#Reflexión del Equipo 4 — Resumen colectivo
 
 Como equipo (Yeison Roa, Sebastián Carvajal y Juan Diego Paz) investigamos tres casos emblemáticos de fallos de software en sistemas de transporte y aeroespaciales: el cohete Ariane 5 (1996), el Boeing 737 MAX (2018–2019) y el Metro de Shanghái Línea 10 (2011). A través de estos desastres comprendimos que en sistemas donde la vida humana depende del software, cada línea de código debe ser verificada, simulada y validada con el máximo rigor.
 
