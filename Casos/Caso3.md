@@ -1,5 +1,82 @@
+# 🚇 CASO 3 – Metro de Shanghái Línea 10 (2011)
+
+**Entidad:** Metro de Shanghái  
+**Fecha:** 27 de Septiembre, 2011  
+**Tipo de Fallo:** Fallo en sistema CBTC + error en actualización en tiempo real  
+**Industria:** Transporte Ferroviario / Sistemas Críticos  
+**Severidad:** ⚠️ Muy Alta (271 heridos)
 
 ---
+
+## 📋 Tabla de Contenidos
+- Resumen Ejecutivo
+- Timeline del Incidente
+- Descripción Técnica
+- Análisis de Causa Raíz
+- Impacto
+- Respuesta Oficial
+- Pruebas que Pudieron Prevenir
+- Lecciones Aprendidas
+- Casos Similares
+- Referencias
+
+---
+
+## 🧠 Resumen Ejecutivo
+
+El **27 de septiembre de 2011**, dos trenes de la Línea 10 del Metro de Shanghái colisionaron después de que una actualización del software **CBTC (Communication-Based Train Control)** causara una **pérdida de sincronización** entre los trenes y el centro de control.
+
+El sistema cayó a un **modo manual sin datos confiables**, las señales no reflejaron la ubicación real de los trenes, y uno avanzó hacia una sección ocupada → **colisión** → **271 heridos**.
+
+Este caso evidencia cómo una **actualización en operación**, sin pruebas ni rollback, puede causar un desastre masivo en segundos.
+
+---
+
+## 🕒 Timeline del Incidente
+
+### 📅 27 de septiembre de 2011
+
+| Hora | Evento |
+|------|--------|
+| ~14:00 | Se realiza una actualización del software CBTC mientras la línea está activa |
+| 14:05 | Se pierde la sincronización entre centro de control y varios trenes |
+| 14:06 | El sistema entra en modo degradado/manual |
+| 14:10 | Señales y telemetría comienzan a mostrar posiciones incorrectas |
+| 14:16 | Un tren avanza hacia un tramo ocupado creyendo que estaba libre |
+| 14:17 | **Colisión entre dos trenes en un túnel elevado** |
+| Minutos después | Llegan equipos de emergencia |
+| Horas después | Suspensión completa de la Línea 10 |
+| Días después | Investigación técnica oficial |
+
+---
+
+## 🛠️ Descripción Técnica
+
+### Sistema Afectado
+
+- **Componente:** CBTC – Communication-Based Train Control  
+- **Función:** Gestiona distancias, frenado automático y velocidad segura  
+- **Modo de Falla:** Pérdida de sincronización + datos inconsistentes → comando incorrecto de avance  
+
+---
+
+### 🖥️ Arquitectura del Sistema
+
+  ┌───────────────────────┐
+  │  Centro de Control    │
+  │     (ATS / ATP)       │
+  └─────────────┬─────────┘
+                │ Telemetría
+                ▼
+     ┌───────────────────┐
+     │   CBTC Wayside    │  ← ❌ ERROR de sincronización
+     └──────────┬────────┘
+                │ Paquetes de posición
+                ▼
+    ┌────────────────────┐
+    │ Tren A / Tren B    │
+    │ (on-board system)  │
+    └────────────────────┘
 
 ### ❌ Qué salió mal
 
