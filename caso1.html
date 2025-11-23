@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casos de Autenticación Deficiente</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Brechas masivas causadas por autenticación deficiente</h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>Facebook (2018)</h2>
+            <p>En 2018, Facebook sufrió una de las brechas de seguridad más grandes de su historia, afectando aproximadamente a 50 millones de usuarios. El ataque se originó en una vulnerabilidad en la función “Ver como”, que permitía a los usuarios visualizar su perfil como lo veía otra persona.
+El problema radicaba en una validación deficiente de los tokens de acceso (credenciales temporales que mantienen la sesión activa). Los atacantes lograron explotar un error en el código para generar tokens válidos sin autenticación legítima, obteniendo acceso directo a las cuentas.
+Esta falla se habría evitado con pruebas de seguridad más rigurosas, especialmente pruebas de sesión, validación de tokens y revisiones de permisos asociados a las funciones internas. La falta de estas pruebas permitió que los hackers actuaran sin ser detectados durante un tiempo considerable.</p>
+
+            <h2>LinkedIn (2012)</h2>
+            <p>En 2012, LinkedIn enfrentó una brecha en la que se filtraron más de 117 millones de contraseñas de sus usuarios. El incidente se debió a una combinación de débil cifrado (uso de SHA-1 sin sal) y falta de validación adecuada en el sistema de autenticación.
+La plataforma no contaba con mecanismos de detección frente a ataques de fuerza bruta o intentos repetitivos de inicio de sesión, lo que facilitó el robo masivo de credenciales. Además, no se realizaron pruebas de penetración periódicas que pudieran haber revelado las debilidades en la gestión de contraseñas.
+La falta de pruebas de seguridad proactivas y la ausencia de políticas modernas de cifrado fueron factores determinantes para que los atacantes lograran descifrar fácilmente millones de contraseñas y venderlas en la web oscura años después.</p>
+
+            <h2>Yahoo (2013-2014)</h2>
+            <p>El caso de Yahoo es considerado uno de los mayores incidentes de seguridad de la historia, ya que comprometió más de 3.000 millones de cuentas. Los atacantes lograron falsificar cookies de autenticación —archivos que mantienen la sesión del usuario abierta—, engañando así al sistema para acceder sin contraseña.
+La causa principal fue una validación insuficiente en los tokens y cookies de sesión, que no verificaban adecuadamente su autenticidad ni su integridad. Además, los sistemas de Yahoo no monitoreaban de forma efectiva los intentos de acceso anómalos, lo que permitió que el ataque pasara desapercibido por meses.
+La compañía fue duramente criticada por no haber aplicado auditorías de seguridad regulares y por no contar con un sistema robusto de detección de intrusiones. Si se hubieran implementado controles de validación más estrictos y pruebas de resistencia ante manipulación de tokens, la magnitud del ataque habría sido mucho meno</p>
+        </section>
+
+        <a href="index.html" class="btn">← Volver al inicio</a>
+    </main>
+</body>
+</html>
