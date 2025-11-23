@@ -1,0 +1,91 @@
+/* --- Estilo general --- */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #141e30, #243b55);
+  color: #f0f0f0;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* --- Títulos --- */
+h1 {
+  margin-top: 60px;
+  font-size: 2.5em;
+  color: #4fc3f7;
+  text-shadow: 0 0 10px rgba(79, 195, 247, 0.4);
+}
+
+h2 {
+  color: #81d4fa;
+  margin-top: 40px;
+  font-size: 1.8em;
+}
+
+/* --- Párrafos y texto --- */
+p {
+  font-size: 1.1em;
+  color: #ddd;
+  margin: 10px auto;
+  max-width: 850px;
+}
+
+/* --- Contenedor principal (tarjeta) --- */
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  text-align: left;
+}
+
+/* --- Listas --- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+}
+
+li {
+  font-size: 1em;
+  color: #ccc;
+  margin-bottom: 6px;
+}
+
+li::before {
+  content: "• ";
+  color: #4fc3f7;
+  font-weight: bold;
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-block;
+  margin: 25px;
+  padding: 15px 40px;
+  font-size: 1.1em;
+  color: white;
+  background: linear-gradient(135deg, #3a6186, #89253e);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #89253e, #3a6186);
+  transform: scale(1.05);
+}
+
+/* --- Footer --- */
+footer {
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #aaa;
+  text-align: center;
+}

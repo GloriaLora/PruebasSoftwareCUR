@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso Equifax 2017</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Caso Equifax 2017: Análisis detallado de la brecha de seguridad</h1>
+    </header>
+
+
+    <section>
+        <h2>Resumen del incidente</h2>
+        <p>En <strong>2017</strong>, Equifax, una de las principales agencias de información crediticia, sufrió una de las brechas más severas registradas. Los atacantes explotaron la vulnerabilidad conocida como <code>CVE-2017-5638</code> en el framework <em>Apache Struts</em>, que permitía la ejecución remota de comandos al procesar solicitudes <code>multipart/form-data</code>. Aunque existía un parche disponible, Equifax no lo aplicó a tiempo, lo que facilitó la intrusión.</p>
+    </section>
+
+
+    <section>
+        <h2>Cómo se explotó la vulnerabilidad</h2>
+        <p>La falla estaba en cómo Apache Struts manejaba ciertos datos en peticiones web. Un atacante podía enviar una petición manipulada que el servidor interpretaba permitiendo ejecutar comandos arbitrarios en el sistema. Esto dio paso al acceso inicial al servidor, desde donde los atacantes se movieron lateralmente dentro de la red de Equifax y exfiltraron datos sensibles durante semanas.</p>
+    </section>
+
+
+    <section>
+        <h2>Datos comprometidos</h2>
+        <p>Se estima que la brecha afectó a alrededor de <strong>147 millones de personas</strong>. Entre la información filtrada se incluyen:</p>
+        <ul>
+            <li>Números de Seguro Social</li>
+            <li>Fechas de nacimiento</li>
+            <li>Direcciones</li>
+            <li>Licencias de conducir</li>
+            <li>En algunos casos, números de tarjetas de crédito</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Causas raíz relacionadas con validación y pruebas</h2>
+        <p>La brecha no fue solo resultado de una vulnerabilidad de software, sino también de fallos organizacionales en el manejo de seguridad:</p>
+        <ul>
+            <li><strong>Gestión de parches deficiente:</strong> el parche para <code>CVE-2017-5638</code> estaba disponible pero no fue desplegado oportunamente.</li>
+            <li><strong>Ausencia de pruebas de penetración y escaneos regulares:</strong> faltaron pruebas que hubieran detectado vectores de explotación y configuraciones inseguras.</li>
+            <li><strong>Monitoreo insuficiente:</strong> los sistemas no detectaron actividad anómala ni movimientos laterales dentro de la red en tiempo real.</li>
+            <li><strong>Validación de entrada inadecuada:</strong> no se implementaron controles robustos que mitigaran la inyección de comandos en las peticiones HTTP.</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2>Consecuencias y sanciones</h2>
+        <p>El impacto fue enorme: Equifax enfrentó múltiples demandas colectivas, la pérdida de confianza pública y sanciones económicas significativas. En acuerdos regulatorios y civiles la compañía acordó pagos que, en su conjunto, superaron los <strong>700 millones de dólares</strong>. Además, varios ejecutivos de alto nivel renunciaron y la empresa tuvo que reforzar sus controles de seguridad y gobernanza.</p>
+    </section>
+
+
+    <section>
+    <h2>Lecciones aprendidas</h2>
+        <ul>
+            <li>Implementar un <em>programa de gestión de parches</em> que priorice y aplique correcciones críticas rápidamente.</li>
+            <li>Realizar escaneos automáticos de vulnerabilidades y pruebas de penetración periódicas para encontrar y mitigar fallos antes de que sean explotados.</li>
+            <li>Establecer monitoreo continuo y detección de intrusiones para identificar movimientos laterales y accesos inusuales.</li>
+            <li>Aplicar validación y saneamiento estricto de entradas del lado servidor para evitar ejecución remota de código.</li>
+            <li>Contar con planes de respuesta a incidentes y ejercicios de simulación para reducir el tiempo de exposición.</li>
+        </ul>
+    </section>
+        <a href="index.html" class="btn">← Volver al inicio</a>
+    </main>
+</body>
+</html>
