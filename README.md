@@ -1,8 +1,8 @@
-🎯 Objetivo General
+Objetivo General
 
 Analizar brechas de seguridad reales causadas por validación deficiente y falta de pruebas, identificando cómo pudieron prevenirse mediante prácticas adecuadas de seguridad informática.
 
-🎯 Objetivos Específicos
+Objetivos Específicos
 
 Identificar casos reales donde fallas de autenticación generaron brechas masivas.
 
@@ -12,35 +12,24 @@ Explicar la relevancia del OWASP Top 10 como guía de seguridad.
 
 Presentar ejemplos de ataques por inyección SQL que pudieron prevenirse.
 
-📁 Estructura del Repositorio
-/
-├── README.md
-└── web/
-    ├── index.html
-    ├── caso1.html
-    ├── caso2.html
-    ├── caso3.html
-    ├── caso4.html
-    └── styles.css
-
-📚 Contenido del Proyecto
+Contenido del Proyecto
 1. Brechas masivas causadas por validación deficiente
-🔹 Facebook (2018)
+ Facebook (2018)
 
 Una falla en la función “Ver como” generó tokens de acceso incorrectos.
 Esta funcionalidad no fue probada adecuadamente, permitiendo a atacantes robar credenciales de más de 50 millones de cuentas.
 
-🔹 LinkedIn (2012)
+ LinkedIn (2012)
 
 La plataforma guardaba contraseñas con un hash insuficientemente seguro.
 Además, no se realizaron pruebas de penetración, permitiendo ataques de fuerza bruta y el robo de 117 millones de contraseñas.
 
-🔹 Yahoo (2013–2014)
+ Yahoo (2013–2014)
 
 Ataque que comprometió 3.000 millones de cuentas.
 El sistema no validaba correctamente los tokens, aceptando tokens falsificados sin verificaciones criptográficas.
 
-📄 Página asociada: web/caso1.html
+ Página asociada: web/caso1.html
 
 2. Caso Equifax 2017
 
@@ -63,7 +52,7 @@ Multa de 700 millones de dólares
 
 Acceso persistente durante meses sin ser detectado
 
-📄 Página asociada: web/caso2.html
+ Página asociada: web/caso2.html
 
 3. OWASP Top 10
 
@@ -86,27 +75,27 @@ Permite diseñar validaciones de entrada correctas.
 
 Ayuda a detectar fallas antes de que atacantes las exploten.
 
-📄 Página asociada: web/caso3.html
+ Página asociada: web/caso3.html
 
 4. Casos de Inyección SQL
-🔹 Sony Pictures (2011)
+ Sony Pictures (2011)
 
 Una inyección SQL permitió el robo de más de un millón de contraseñas.
 No había validación de entrada ni pruebas de seguridad en bases de datos.
 
-🔹 TalkTalk (2015)
+ TalkTalk (2015)
 
 Un ataque simple de SQL injection comprometió datos de 150,000 clientes.
 Costo para la empresa: 60 millones de dólares.
 
-🔹 Heartland Payment Systems (2008)
+ Heartland Payment Systems (2008)
 
 Inyección SQL permitió instalar malware que robó datos de 130 millones de tarjetas.
 No existían pruebas automatizadas ni revisiones de código seguro.
 
-📄 Página asociada: web/caso4.html
+ Página asociada: web/caso4.html
 
-🧠 Lecciones Aprendidas
+ Lecciones Aprendidas
 
 Las vulnerabilidades críticas casi siempre se originan por falta de pruebas.
 
@@ -118,7 +107,7 @@ Las empresas deben mantener actualización continua de software.
 
 Los ataques SQL siguen activos porque muchos sistemas no filtran entradas.
 
-🧾 Conclusiones
+ Conclusiones
 
 La mayoría de brechas masivas fueron evitables con pruebas mínimas.
 
@@ -128,7 +117,7 @@ La validación deficiente en autenticación continúa siendo uno de los puntos m
 
 Las empresas deben implementar políticas de pruebas continuas y monitoreo activo.
 
-🛠️ Recomendaciones
+ Recomendaciones
 
 Implementar pruebas automatizadas de seguridad en cada despliegue.
 
@@ -140,7 +129,7 @@ Adoptar metodologías como DevSecOps.
 
 Actualizar frameworks y librerías de forma inmediata.
 
-🧭 Cómo Navegar el Proyecto
+ Cómo Navegar el Proyecto
 
 Sitio web principal:
 web/index.html
@@ -155,7 +144,7 @@ OWASP Top 10 → web/caso3.html
 
 Casos SQL → web/caso4.html
 
-📚 Referencias
+ Referencias
 
 OWASP Foundation. (2021). OWASP Top 10 – The Ten Most Critical Web Application Security Risks.
 
